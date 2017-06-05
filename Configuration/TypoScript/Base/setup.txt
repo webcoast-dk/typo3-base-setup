@@ -1,0 +1,1 @@
+<INCLUDE_TYPOSCRIPT: source="DIR:EXT:typo3_default_setup/Configuration/TypoScript/Base/Includes" extensions="ts">

@@ -1,0 +1,22 @@
+{
+	"name": "kapp-hamburg/typo3-default-setup",
+	"description": "TYPO3 base setup and components",
+	"license": "GPL-2.0+",
+	"minimum-stability": "dev",
+	"prefer-stable": true,
+	"version": "1.0.0-dev",
+	"authors": [
+		{
+			"name": "Thorben Nissen",
+			"email": "thorben.nissen@kapp-hamburg.de"
+		}
+	],
+	"autoload": {
+		"psr-4": {
+			"KappHamburg\\Typo3DefaultSetup\\": "Classes"
+		}
+	},
+	"require": {
+		"typo3/cms": "^8.7.0"
+	}
+}
