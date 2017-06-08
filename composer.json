@@ -1,6 +1,7 @@
 {
 	"name": "kapp-hamburg/typo3-default-setup",
 	"description": "TYPO3 base setup and components",
+	"type": "typo3-cms-extension",
 	"license": "GPL-2.0+",
 	"minimum-stability": "dev",
 	"prefer-stable": true,
