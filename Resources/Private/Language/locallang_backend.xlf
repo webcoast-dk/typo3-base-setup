@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xliff version="1.2">
+    <file source-language="en" product-name="typo3-default-setup">
+        <body>
+            <trans-unit id="backendLayouts.default">
+                <source>Default</source>
+            </trans-unit>
+            <trans-unit id="backendLayouts.default.content">
+                <source>Content</source>
+            </trans-unit>
+
+            <trans-unit id="tt_content.header_position.types.textmedia.above">
+                <source>Above</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

@@ -1,0 +1,47 @@
+# Load default processing options
+imports:
+  - { resource: "EXT:rte_ckeditor/Configuration/RTE/Processing.yaml" }
+  - { resource: "EXT:rte_ckeditor/Configuration/RTE/Editor/Base.yaml" }
+  - { resource: "EXT:rte_ckeditor/Configuration/RTE/Editor/Plugins.yaml" }
+
+processing:
+  allowTags:
+    - u
+  HTMLparser_db:
+    removeTags: [center, font, link, meta, o:p, sdfield, strike, style, title]
+
+editor:
+  config:
+    contentsCss:
+      - "EXT:rte_ckeditor/Resources/Public/Css/contents.css"
+
+    stylesSet: []
+
+    format_tags: "p;h1;h2;h3"
+
+    toolbarGroups:
+      - { name: styles, groups: [ styles, format ] }
+      - { name: basicstyles, groups: [ basicstyles ] }
+      - { name: paragraph, groups: [ list, indent, blocks, align ] }
+      - { name: links, groups: [ links ] }
+      - { name: clipboard, groups: [ clipboard, cleanup, undo ] }
+      - { name: editing, groups: [ spellchecker ] }
+      - { name: insert, groups: [ insert ] }
+      - { name: tools, groups: [ table, specialchar ] }
+      - { name: document, groups: [ mode ] }
+
+    allowTagsOutside:
+      - ul
+
+    removePlugins:
+      - image
+      - scayt
+
+    removeButtons:
+      - Anchor
+      - Strike
+      - Indent
+      - Outdent
+      - HorizontalRule
+      - SpellChecker
+      - SpecialChar

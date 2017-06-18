@@ -5,12 +5,19 @@ page {
 
     10 = LOAD_REGISTER
     10 {
-
+        imageWidth = 1020
+        imageWidthMd = 844
+        imageWidthSm = 712
+        imageWidthXs = 432
     }
 
     20 = FLUIDTEMPLATE
     20 {
         file =
+
+        variables {
+            contentMain = < lib.content.main
+        }
 
         dataProcessing {
             10 = KappHamburg\Typo3DefaultSetup\DataProcessing\MenuProcessor

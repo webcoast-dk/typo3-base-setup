@@ -1,0 +1,38 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:t="http://typo3.org/ns/KappHamburg/Typo3DefaultSetup/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:for each="{media}" as="mediaItem">
+    <f:if condition="{mediaItem.description}">
+        <f:then>
+            <figure class="figure">
+                <f:render section="mediaContent" arguments="{_all}" />
+            </figure>
+            <figcaption class="figure__caption">
+                {mediaItem.description}
+            </figcaption>
+        </f:then>
+        <f:else>
+            <f:render section="mediaContent" arguments="{_all}" />
+        </f:else>
+    </f:if>
+</f:for>
+
+<f:section name="mediaContent">
+    <f:if condition="{mediaItem.properties.type}!=4&&{mediaItem.link}">
+        <f:then>
+            <f:link.typolink parameter="{mediaItem.link}">
+                <f:render section="mediaResource" arguments="{_all}" />
+            </f:link.typolink>
+        </f:then>
+        <f:else>
+            <f:render section="mediaResource" arguments="{_all}" />
+        </f:else>
+    </f:if>
+</f:section>
+
+<f:section name="mediaResource">
+    <f:switch expression="{mediaItem.properties.type}">
+        <f:case value="2">
+            <f:render partial="Media/Image" arguments="{_all}" />
+        </f:case>
+    </f:switch>
+</f:section>
+</html>
