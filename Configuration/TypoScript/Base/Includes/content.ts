@@ -21,3 +21,6 @@ lib.contentElement {
         disableHeaderLink.value = 1
     }
 }
+
+<INCLUDE_TYPOSCRIPT: source="DIR:EXT:typo3_default_setup/Configuration/TypoScript/Base/Includes/Content" extensions="ts">
+<INCLUDE_TYPOSCRIPT: source="DIR:EXT:typo3_default_setup/Configuration/TypoScript/Base/Includes/Extensions" extensions="ts">

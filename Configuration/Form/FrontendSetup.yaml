@@ -1,0 +1,13 @@
+TYPO3:
+  CMS:
+    Form:
+      mixins:
+        formElementMixins:
+          BaseFormElementMixin:
+            renderingOptions:
+              layoutRootPaths:
+                100: 'EXT:typo3_default_setup/Resources/Private/Layouts/Form/Frontend/'
+              templateRootPaths:
+                100: 'EXT:typo3_default_setup/Resources/Private/Templates/Form/Frontend/'
+              partialRootPaths:
+                100: 'EXT:typo3_default_setup/Resources/Private/Partials/Form/Frontend/'
