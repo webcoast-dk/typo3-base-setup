@@ -2,6 +2,7 @@ TCAdefaults.tt_content.imagecols = 1
 
 TCEFORM.tt_content {
     # tab: general
+    header_layout.keepItems = 0,1,2,3,100
     header_position.disabled = 1
     date.disabled = 1
     header_link.disabled = 1
