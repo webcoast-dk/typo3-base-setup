@@ -4,17 +4,19 @@
 		<f:if condition="{doNotShowLabel} != 1">
 			<label class="form__label" for="{element.uniqueIdentifier}">{formvh:translateElementProperty(element: element, property: 'label')}<f:if condition="{element.required}"><f:render partial="Field/Required" /></f:if></label>
 		</f:if>
-		<f:format.raw>
-			{elementContent}
-			<f:if condition="{validationResults.flattenedErrors}">
-				<p class="form__error">
-					<f:for each="{validationResults.errors}" as="error">
-						{formvh:translateElementError(element: element, code: error.code, arguments: error.arguments, defaultValue: error.message)}
-						<br />
-					</f:for>
-				</p>
-			</f:if>
-		</f:format.raw>
+		<div class="form__field">
+			<f:format.raw>
+				{elementContent}
+				<f:if condition="{validationResults.flattenedErrors}">
+					<p class="form__error">
+						<f:for each="{validationResults.errors}" as="error">
+							{formvh:translateElementError(element: element, code: error.code, arguments: error.arguments, defaultValue: error.message)}
+							<br />
+						</f:for>
+					</p>
+				</f:if>
+			</f:format.raw>
+		</div>
 	</div>
 </f:form.validationResults>
 </html>
