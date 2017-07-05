@@ -19,6 +19,12 @@ lib.contentElement {
 
         disableHeaderLink = TEXT
         disableHeaderLink.value = 1
+        
+        defaultFirstHeaderLayout = TEXT
+        defaultFirstHeaderLayout.data = register:defaultFirstHeaderLayout 
+
+        defaultHeaderLayout = TEXT
+        defaultHeaderLayout.data = register:defaultHeaderLayout 
     }
 }
 

@@ -21,14 +21,32 @@
     <f:defaultCase>
         <f:if condition="{cObjNumber} == 1">
             <f:then>
-                <f:alias map="{headerLayout: 1}">
-                    <f:render section="headline" arguments="{_all}" />
-                </f:alias>
+                <f:if condition="{defaultFirstHeaderLayout}">
+                    <f:then>
+                        <f:alias map="{headerLayout: defaultFirstHeaderLayout}">
+                            <f:render section="headline" arguments="{_all}" />
+                        </f:alias>
+                    </f:then>
+                    <f:else>
+                        <f:alias map="{headerLayout: 1}">
+                            <f:render section="headline" arguments="{_all}" />
+                        </f:alias>
+                    </f:else>
+                </f:if>
             </f:then>
             <f:else>
-                <f:alias map="{headerLayout: 2}">
-                    <f:render section="headline" arguments="{_all}" />
-                </f:alias>
+                <f:if condition="{defaultHeaderLayout}">
+                    <f:then>
+                        <f:alias map="{headerLayout: defaultHeaderLayout}">
+                            <f:render section="headline" arguments="{_all}" />
+                        </f:alias>
+                    </f:then>
+                    <f:else>
+                        <f:alias map="{headerLayout: 2}">
+                            <f:render section="headline" arguments="{_all}" />
+                        </f:alias>
+                    </f:else>
+                </f:if>
             </f:else>
         </f:if>
     </f:defaultCase>

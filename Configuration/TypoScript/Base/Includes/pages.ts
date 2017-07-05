@@ -9,6 +9,8 @@ page {
         imageWidthMd = 844
         imageWidthSm = 712
         imageWidthXs = 432
+        defaultFirstHeaderLayout = 1
+        defaultHeaderLayout = 2
     }
 
     20 = FLUIDTEMPLATE
