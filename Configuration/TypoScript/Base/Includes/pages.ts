@@ -3,6 +3,10 @@ page {
     includeCSS.styles = /static/css/styles.css
     includeJS.scripts = /static/js/scripts.js
 
+    meta {
+        viewport = width=device-width, initial-scale=1.0
+    }
+
     10 = LOAD_REGISTER
     10 {
         imageWidth = 1020
