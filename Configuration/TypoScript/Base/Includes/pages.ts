@@ -5,6 +5,18 @@ page {
 
     meta {
         viewport = width=device-width, initial-scale=1.0
+        description {
+            field = description
+            override.data = TSFE:applicationData|description
+        }
+        keywords {
+            field = keywords
+            override.data = TSFE:applicationData|keywords
+        }
+        abstract {
+            field = abstract
+            override.data = TSFE:applicationData|abstract
+        }
     }
 
     10 = LOAD_REGISTER
