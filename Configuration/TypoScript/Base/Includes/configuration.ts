@@ -18,9 +18,13 @@ config {
     disablePrefixComment = 1
     moveJsFromHeaderToFooter = 1
 
+    disablePrefixComment = 1
+
+    cache_clearAtMidnight = 1
     sendCacheHeaders = 1
     sendCacheHeaders_onlyWhenLoginDeniedInBranch = 0
 
+    noPageTitle = 1
     pageTitle.cObject =< lib.pageTitle
     pageTitle.cObject {
         orderedStdWrap {

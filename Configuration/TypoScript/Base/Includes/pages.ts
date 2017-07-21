@@ -5,6 +5,20 @@ page {
 
     meta {
         viewport = width=device-width, initial-scale=1.0
+        X-UA-Compatible = IE=edge
+        X-UA-Compatible.httpEquivalent = 1
+        robots = index,follow
+		robots {
+			override = noindex,follow
+			override.if.isTrue.field = no_search
+			orderedStdWrap {
+				10 {
+					override {
+						data = TSFE:applicationData|robots
+					}
+				}
+			}
+		}
         description {
             field = description
             override.data = TSFE:applicationData|description
