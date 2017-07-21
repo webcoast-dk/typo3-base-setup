@@ -9,9 +9,9 @@ lib.content.main {
 }
 
 lib.contentElement {
-    templateRootPaths.10 = EXT:typo3_default_setup/Resources/Private/Templates/Content
-    partialRootPaths.10 = EXT:typo3_default_setup/Resources/Private/Partials/Content
-    layoutRootPaths.10 = EXT:typo3_default_setup/Resources/Private/Layouts/Content
+    templateRootPaths.10 = EXT:typo3_base_setup/Resources/Private/Templates/Content
+    partialRootPaths.10 = EXT:typo3_base_setup/Resources/Private/Partials/Content
+    layoutRootPaths.10 = EXT:typo3_base_setup/Resources/Private/Layouts/Content
 
     variables {
         cObjNumber = TEXT
@@ -28,5 +28,5 @@ lib.contentElement {
     }
 }
 
-<INCLUDE_TYPOSCRIPT: source="DIR:EXT:typo3_default_setup/Configuration/TypoScript/Base/Includes/Content" extensions="ts">
-<INCLUDE_TYPOSCRIPT: source="DIR:EXT:typo3_default_setup/Configuration/TypoScript/Base/Includes/Extensions" extensions="ts">
+<INCLUDE_TYPOSCRIPT: source="DIR:EXT:typo3_base_setup/Configuration/TypoScript/Base/Includes/Content" extensions="ts">
+<INCLUDE_TYPOSCRIPT: source="DIR:EXT:typo3_base_setup/Configuration/TypoScript/Base/Includes/Extensions" extensions="ts">

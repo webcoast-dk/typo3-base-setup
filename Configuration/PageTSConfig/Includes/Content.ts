@@ -29,7 +29,7 @@ TCEFORM.tt_content {
         disabled = 0
         removeItems = center,right,left
         addItems {
-            above = LLL:EXT:typo3_default_setup/Resources/Private/Language/locallang_backend.xlf:tt_content.header_position.types.textmedia.above
+            above = LLL:EXT:typo3_base_setup/Resources/Private/Language/locallang_backend.xlf:tt_content.header_position.types.textmedia.above
         }
     }
     imagewidth.types.textmedia.disabled = 0

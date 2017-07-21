@@ -1,4 +1,4 @@
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:t="http://typo3.org/ns/WEBcoast/Typo3DefaultSetup/ViewHelpers" data-namespace-typo3-fluid="true">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:t="http://typo3.org/ns/WEBcoast/Typo3BaseSetup/ViewHelpers" data-namespace-typo3-fluid="true">
 <picture>
     <f:if condition="{imageWidthXs}">
         <source media="(max-width: 480px)" srcset="{f:uri.image(src: mediaItem.uid, treatIdAsReference: 1, width: imageWidthXs)}, {f:uri.image(src: mediaItem.uid, treatIdAsReference: 1, width: '{2 * imageWidthXs}')} 2x, {f:uri.image(src: mediaItem.uid, treatIdAsReference: 1, width: '{3 * imageWidthXs}')} 3x" />

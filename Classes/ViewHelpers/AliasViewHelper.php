@@ -1,6 +1,6 @@
 <?php
 
-namespace WEBcoast\Typo3DefaultSetup\ViewHelpers;
+namespace WEBcoast\Typo3BaseSetup\ViewHelpers;
 
 
 use TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;

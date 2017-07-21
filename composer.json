@@ -1,5 +1,5 @@
 {
-	"name": "webcoast/typo3-default-setup",
+	"name": "webcoast/typo3-base-setup",
 	"description": "TYPO3 basic page setup and components",
 	"type": "typo3-cms-extension",
 	"license": "GPL-2.0+",
@@ -19,7 +19,7 @@
 	},
 	"autoload": {
 		"psr-4": {
-			"WEBcoast\\Typo3DefaultSetup\\": "Classes"
+			"WEBcoast\\Typo3BaseSetup\\": "Classes"
 		}
 	},
 	"require": {

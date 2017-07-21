@@ -5,4 +5,4 @@ TCEMAIN {
     }
 }
 
-<INCLUDE_TYPOSCRIPT: source="DIR:EXT:typo3_default_setup/Configuration/PageTSConfig/Includes" extensions="ts">
+<INCLUDE_TYPOSCRIPT: source="DIR:EXT:typo3_base_setup/Configuration/PageTSConfig/Includes" extensions="ts">

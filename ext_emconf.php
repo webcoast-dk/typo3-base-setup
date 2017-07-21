@@ -1,7 +1,7 @@
 <?php
 
 $EM_CONF[$_EXTKEY] = array(
-	'title' => 'TYPO3 Default setup',
+	'title' => 'TYPO3 base setup',
 	'description' => 'TYPO3 base setup and components',
 	'category' => 'plugin',
 	'author' => 'Thorben Nissen',

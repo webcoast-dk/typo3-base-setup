@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <xliff version="1.2">
-    <file source-language="en" product-name="typo3-default-setup">
+    <file source-language="en" product-name="typo3-base-setup">
         <body>
             <trans-unit id="backendLayouts.default">
                 <source>Default</source>

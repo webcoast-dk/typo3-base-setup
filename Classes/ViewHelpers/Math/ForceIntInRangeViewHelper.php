@@ -1,6 +1,6 @@
 <?php
 
-namespace WEBcoast\Typo3DefaultSetup\ViewHelpers\Math;
+namespace WEBcoast\Typo3BaseSetup\ViewHelpers\Math;
 
 
 use TYPO3\CMS\Core\Utility\MathUtility;

@@ -1,6 +1,6 @@
 <?php
 
-namespace WEBcoast\Typo3DefaultSetup\Backend\View;
+namespace WEBcoast\Typo3BaseSetup\Backend\View;
 
 use TYPO3\CMS\Backend\View\BackendLayout;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
@@ -19,8 +19,8 @@ class FileBackendLayoutProvider implements BackendLayout\DataProviderInterface
      */
     public function addBackendLayouts(BackendLayout\DataProviderContext $dataProviderContext, BackendLayout\BackendLayoutCollection $backendLayoutCollection)
     {
-        if (is_array($GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['typo3_default_setup']['BackendLayouts'])) {
-            foreach ($GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['typo3_default_setup']['BackendLayouts'] as $extensionKey) {
+        if (is_array($GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['typo3_base_setup']['BackendLayouts'])) {
+            foreach ($GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['typo3_base_setup']['BackendLayouts'] as $extensionKey) {
                 $directory = GeneralUtility::getFileAbsFileName(
                     'EXT:' . $extensionKey . '/Configuration/BackendLayouts/'
                 );

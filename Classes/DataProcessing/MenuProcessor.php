@@ -1,6 +1,6 @@
 <?php
 
-namespace WEBcoast\Typo3DefaultSetup\DataProcessing;
+namespace WEBcoast\Typo3BaseSetup\DataProcessing;
 
 
 use TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController;
