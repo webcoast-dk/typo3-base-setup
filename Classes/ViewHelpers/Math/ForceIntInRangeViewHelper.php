@@ -1,6 +1,6 @@
 <?php
 
-namespace KappHamburg\Typo3DefaultSetup\ViewHelpers\Math;
+namespace WEBcoast\Typo3DefaultSetup\ViewHelpers\Math;
 
 
 use TYPO3\CMS\Core\Utility\MathUtility;

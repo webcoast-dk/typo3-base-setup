@@ -1,6 +1,6 @@
 <?php
 
-namespace KappHamburg\Typo3DefaultSetup\ViewHelpers\Util;
+namespace WEBcoast\Typo3DefaultSetup\ViewHelpers\Util;
 
 
 use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;

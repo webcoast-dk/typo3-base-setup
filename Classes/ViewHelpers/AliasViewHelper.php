@@ -1,6 +1,6 @@
 <?php
 
-namespace KappHamburg\Typo3DefaultSetup\ViewHelpers;
+namespace WEBcoast\Typo3DefaultSetup\ViewHelpers;
 
 
 use TYPO3Fluid\Fluid\Core\Rendering\RenderingContextInterface;

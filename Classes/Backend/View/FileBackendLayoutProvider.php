@@ -1,6 +1,6 @@
 <?php
 
-namespace KappHamburg\Typo3DefaultSetup\Backend\View;
+namespace WEBcoast\Typo3DefaultSetup\Backend\View;
 
 use TYPO3\CMS\Backend\View\BackendLayout;
 use TYPO3\CMS\Core\Utility\GeneralUtility;

@@ -52,7 +52,7 @@ page {
         }
 
         dataProcessing {
-            10 = KappHamburg\Typo3DefaultSetup\DataProcessing\MenuProcessor
+            10 = WEBcoast\Typo3DefaultSetup\DataProcessing\MenuProcessor
             10 {
                 as = menuMain
                 entryLevel = 0

@@ -19,7 +19,7 @@ TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile(
 );
 
 // register backend layout provider
-$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['BackendLayoutDataProvider']['typo3_default_setup'] = KappHamburg\Typo3DefaultSetup\Backend\View\FileBackendLayoutProvider::class;
+$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['BackendLayoutDataProvider']['typo3_default_setup'] = WEBcoast\Typo3DefaultSetup\Backend\View\FileBackendLayoutProvider::class;
 // register default backend layout
 $GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['typo3_default_setup']['BackendLayouts'][] = 'typo3_default_setup';
 
