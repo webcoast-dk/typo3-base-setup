@@ -1,56 +1,58 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:t="http://typo3.org/ns/WEBcoast/Typo3BaseSetup/ViewHelpers" data-namespace-typo3-fluid="true">
-<f:switch expression="{data.header_layout}">
-    <f:case value="1">
-        <f:alias map="{headerLayout: 1}">
-            <f:render section="headline" arguments="{_all}" />
-        </f:alias>
-    </f:case>
-    <f:case value="2">
-        <f:alias map="{headerLayout: 2}">
-            <f:render section="headline" arguments="{_all}" />
-        </f:alias>
-    </f:case>
-    <f:case value="3">
-        <f:alias map="{headerLayout: 3}">
-            <f:render section="headline" arguments="{_all}" />
-        </f:alias>
-    </f:case>
-    <f:case value="100">
-        <f:comment>This is hidden</f:comment>
-    </f:case>
-    <f:defaultCase>
-        <f:if condition="{cObjNumber} == 1">
-            <f:then>
-                <f:if condition="{defaultFirstHeaderLayout}">
-                    <f:then>
-                        <f:alias map="{headerLayout: defaultFirstHeaderLayout}">
-                            <f:render section="headline" arguments="{_all}" />
-                        </f:alias>
-                    </f:then>
-                    <f:else>
-                        <f:alias map="{headerLayout: 1}">
-                            <f:render section="headline" arguments="{_all}" />
-                        </f:alias>
-                    </f:else>
-                </f:if>
-            </f:then>
-            <f:else>
-                <f:if condition="{defaultHeaderLayout}">
-                    <f:then>
-                        <f:alias map="{headerLayout: defaultHeaderLayout}">
-                            <f:render section="headline" arguments="{_all}" />
-                        </f:alias>
-                    </f:then>
-                    <f:else>
-                        <f:alias map="{headerLayout: 2}">
-                            <f:render section="headline" arguments="{_all}" />
-                        </f:alias>
-                    </f:else>
-                </f:if>
-            </f:else>
-        </f:if>
-    </f:defaultCase>
-</f:switch>
+<f:if condition="{data.header}">
+    <f:switch expression="{data.header_layout}">
+        <f:case value="1">
+            <f:alias map="{headerLayout: 1}">
+                <f:render section="headline" arguments="{_all}" />
+            </f:alias>
+        </f:case>
+        <f:case value="2">
+            <f:alias map="{headerLayout: 2}">
+                <f:render section="headline" arguments="{_all}" />
+            </f:alias>
+        </f:case>
+        <f:case value="3">
+            <f:alias map="{headerLayout: 3}">
+                <f:render section="headline" arguments="{_all}" />
+            </f:alias>
+        </f:case>
+        <f:case value="100">
+            <f:comment>This is hidden</f:comment>
+        </f:case>
+        <f:defaultCase>
+            <f:if condition="{cObjNumber} == 1">
+                <f:then>
+                    <f:if condition="{defaultFirstHeaderLayout}">
+                        <f:then>
+                            <f:alias map="{headerLayout: defaultFirstHeaderLayout}">
+                                <f:render section="headline" arguments="{_all}" />
+                            </f:alias>
+                        </f:then>
+                        <f:else>
+                            <f:alias map="{headerLayout: 1}">
+                                <f:render section="headline" arguments="{_all}" />
+                            </f:alias>
+                        </f:else>
+                    </f:if>
+                </f:then>
+                <f:else>
+                    <f:if condition="{defaultHeaderLayout}">
+                        <f:then>
+                            <f:alias map="{headerLayout: defaultHeaderLayout}">
+                                <f:render section="headline" arguments="{_all}" />
+                            </f:alias>
+                        </f:then>
+                        <f:else>
+                            <f:alias map="{headerLayout: 2}">
+                                <f:render section="headline" arguments="{_all}" />
+                            </f:alias>
+                        </f:else>
+                    </f:if>
+                </f:else>
+            </f:if>
+        </f:defaultCase>
+    </f:switch>
+</f:if>
 
 <f:section name="headline">
     <f:if condition="{headerClass}">
