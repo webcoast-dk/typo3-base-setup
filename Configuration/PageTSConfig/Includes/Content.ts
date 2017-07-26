@@ -7,7 +7,7 @@ TCEFORM.tt_content {
     date.disabled = 1
     header_link.disabled = 1
     subheader.disabled = 1
-    CType.keepItems = header,text,image,textmedia,filelinks,form_formframework,menu_pages,menu_subpages,menu_section_index,menu_sitemap,div,shortcut
+    CType.keepItems = header,text,image,textmedia,filelinks,form_formframework,menu_pages,menu_subpages,menu_section_index,menu_sitemap,div,shortcut,list
 
     # tab: media
     imagewidth.disabled = 1
