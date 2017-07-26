@@ -1,5 +1,5 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:t="http://typo3.org/ns/WEBcoast/Typo3BaseSetup/ViewHelpers" data-namespace-typo3-fluid="true">
-<f:if condition="{data.imagecols} > 0">
+<f:if condition="{data.imagecols} > 0&&{files -> f:count()} > 1">
     <f:then>
         <div class="gallery">
             <f:for each="{gallery.rows}" as="row">
