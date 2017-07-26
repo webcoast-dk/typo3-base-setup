@@ -1,0 +1,35 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:t="http://typo3.org/ns/WEBcoast/Typo3BaseSetup/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:if condition="{data.imagecols} > 0">
+    <f:then>
+        <div class="gallery">
+            <f:for each="{gallery.rows}" as="row">
+                <div class="gallery__row">
+                    <f:for each="{row.columns}" as="column">
+                        <div class="gallery__column gallery__column--1/{data.imagecols}">
+                            <f:alias map="{mediaItem: column.media, imageHeight: '{f:render(section: \'height\', arguments: \'{_all}\') -> t:util.trim()}', modifier: '{f:render(section: \'modifier\', arguments: \'{_all}\') -> t:util.trim()}'}">
+                                <f:render partial="Media/Item" arguments="{_all}" />
+                            </f:alias>
+                        </div>
+                    </f:for>
+                </div>
+            </f:for>
+        </div>
+    </f:then>
+    <f:else>
+        <f:render partial="Media" arguments="{_all}" />
+    </f:else>
+</f:if>
+
+<f:section name="height">
+    <f:if condition="{data.imagewidth} > 0&&{data.imageheight} > 0">
+        {imageWidth / data.imagewidth * data.imageheight}
+    </f:if>
+</f:section>
+
+<f:section name="modifier">
+    <f:if condition="{data.imagewidth} > 0&&{data.imageheight} > 0">
+        <f:then>c</f:then>
+        <f:else>m</f:else>
+    </f:if>
+</f:section>
+</html>

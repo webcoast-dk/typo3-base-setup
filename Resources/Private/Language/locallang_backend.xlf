@@ -12,6 +12,16 @@
             <trans-unit id="tt_content.header_position.types.textmedia.above">
                 <source>Above</source>
             </trans-unit>
+
+            <trans-unit id="tt_content.palette.crop">
+                <source>Crop to given aspect ratio</source>
+            </trans-unit>
+            <trans-unit id="tt_content.imagewidth.types.image">
+                <source>Width</source>
+            </trans-unit>
+            <trans-unit id="tt_content.imageheight.types.image">
+                <source>Height</source>
+            </trans-unit>
         </body>
     </file>
 </xliff>

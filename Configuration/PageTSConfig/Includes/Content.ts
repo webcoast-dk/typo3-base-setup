@@ -7,7 +7,7 @@ TCEFORM.tt_content {
     date.disabled = 1
     header_link.disabled = 1
     subheader.disabled = 1
-    CType.keepItems = header,text,textmedia,filelinks,form_formframework,menu_pages,menu_subpages,menu_section_index,menu_sitemap,div,shortcut
+    CType.keepItems = header,text,image,textmedia,filelinks,form_formframework,menu_pages,menu_subpages,menu_section_index,menu_sitemap,div,shortcut
 
     # tab: media
     imagewidth.disabled = 1
@@ -33,4 +33,19 @@ TCEFORM.tt_content {
         }
     }
     imagewidth.types.textmedia.disabled = 0
+
+    # image
+    imageorient.types.image.disabled = 1
+    imagecols.types.image {
+        disabled = 0
+        keepItems = 1,2,3,4
+    }
+    imagewidth.types.image {
+        disabled = 0
+        label = LLL:EXT:typo3_base_setup/Resources/Private/Language/locallang_backend.xlf:tt_content.imagewidth.types.image
+    }
+    imageheight.types.image {
+        disabled = 0
+        label = LLL:EXT:typo3_base_setup/Resources/Private/Language/locallang_backend.xlf:tt_content.imageheight.types.image
+    }
 }

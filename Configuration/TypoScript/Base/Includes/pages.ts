@@ -39,6 +39,7 @@ page {
         imageWidthMd = 844
         imageWidthSm = 712
         imageWidthXs = 432
+        columnGap = 16
         defaultFirstHeaderLayout = 1
         defaultHeaderLayout = 2
     }

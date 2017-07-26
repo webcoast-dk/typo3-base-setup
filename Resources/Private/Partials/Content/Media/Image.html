@@ -9,6 +9,6 @@
     <f:if condition="{imageWidthMd}">
         <source media="(max-width: 1024px)" srcset="{f:uri.image(src: mediaItem.uid, treatIdAsReference: 1, width: imageWidthMd)}, {f:uri.image(src: mediaItem.uid, treatIdAsReference: 1, width: '{2 * imageWidthMd}')} 2x" />
     </f:if>
-    <img src="{f:uri.image(src: mediaItem.uid, treatIdAsReference: 1, width: imageWidth)}" alt="{mediaItem.alternative}" srcset="{f:uri.image(src: mediaItem.uid, treatIdAsReference: 1, width: imageWidth)}, {f:uri.image(src: mediaItem.uid, treatIdAsReference: 1, width: '{2 * imageWidth}')} 2x" />
+    <img src="{f:uri.image(src: mediaItem.uid, treatIdAsReference: 1, width: '{imageWidth}{modifier ? modifier : \'m\'}', height: '{imageHeight ? imageHeight : 0}{modifier ? modifier : \'m\'}')}" alt="{mediaItem.alternative}" srcset="{f:uri.image(src: mediaItem.uid, treatIdAsReference: 1, width: '{imageWidth}{modifier ? modifier : \'m\'}', height: '{imageHeight ? imageHeight : 0}{modifier ? modifier : \'m\'}')}, {f:uri.image(src: mediaItem.uid, treatIdAsReference: 1, width: '{imageWidth * 2}{modifier ? modifier : \'m\'}', height: '{imageHeight ? imageHeight * 2 : 0}{modifier ? modifier : \'m\'}')} 2x" />
 </picture>
 </html>
