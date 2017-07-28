@@ -38,8 +38,11 @@ TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile(
 
 // register backend layout provider
 $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['BackendLayoutDataProvider']['typo3_base_setup'] = WEBcoast\Typo3BaseSetup\Backend\View\FileBackendLayoutProvider::class;
-// register default backend layout
-$GLOBALS['TYPO3_CONF_VARS']['EXTCONF']['typo3_base_setup']['BackendLayouts'][] = 'typo3_base_setup';
+$extensionConfiguration = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][$_EXTKEY]);
+if ((bool)$extensionConfiguration['defaultBackendLayoutEnable'] === true) {
+    // register default backend layout
+    \WEBcoast\Typo3BaseSetup\Utility\ConfigurationUtility::registerBackendLayouts($_EXTKEY);
+}
 
 TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile($_EXTKEY, 'Configuration/PageTSConfig/page_setup.ts', 'Page setup');
 // add default backend typoscript
