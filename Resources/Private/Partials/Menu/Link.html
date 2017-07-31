@@ -1,0 +1,32 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:if condition="{page.data.doktype} == 3">
+    <f:then>
+        <f:if condition="{linkClass}">
+            <f:then>
+                <f:link.external uri="{page.finalLinkParameter}" class="{linkClass}" target="_blank">
+                    {content -> f:format.raw()}
+                </f:link.external>
+            </f:then>
+            <f:else>
+                <f:link.external uri="{page.finalLinkParameter}" target="_blank">
+                    {content -> f:format.raw()}
+                </f:link.external>
+            </f:else>
+        </f:if>
+    </f:then>
+    <f:else>
+        <f:if condition="{linkClass}">
+            <f:then>
+                <f:link.page pageUid="{page.finalLinkParameter}" class="{linkClass}">
+                    {content -> f:format.raw()}
+                </f:link.page>
+            </f:then>
+            <f:else>
+                <f:link.page pageUid="{page.finalLinkParameter}">
+                    {content -> f:format.raw()}
+                </f:link.page>
+            </f:else>
+        </f:if>
+    </f:else>
+</f:if>
+</html>
