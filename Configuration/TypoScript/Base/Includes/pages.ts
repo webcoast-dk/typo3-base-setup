@@ -47,12 +47,19 @@ page {
     20 = FLUIDTEMPLATE
     20 {
         file =
+        partialRootPaths {
+            10 = EXT:typo3_base_setup/Resources/Private/Partials
+        }
+        layoutRootPaths {
+            10 = EXT:typo3_base_setup/Resources/Private/Layouts
+        }
 
         variables {
             contentMain = < lib.content.main
         }
 
         dataProcessing {
+            # main menu
             10 = WEBcoast\Typo3BaseSetup\DataProcessing\MenuProcessor
             10 {
                 as = menuMain
@@ -60,6 +67,7 @@ page {
                 levels = 3
             }
 
+            # homepage data
             20 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
             20 {
                 table = pages
