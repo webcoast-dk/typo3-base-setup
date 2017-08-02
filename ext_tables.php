@@ -49,3 +49,5 @@ TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile($_EX
 TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTypoScriptSetup('<INCLUDE_TYPOSCRIPT: source="FILE:EXT:typo3_base_setup/Configuration/TypoScript/Backend/setup.txt">');
 // add over default rte preset
 $GLOBALS['TYPO3_CONF_VARS']['RTE']['Presets']['default'] = 'EXT:typo3_base_setup/Configuration/Rte/default.yaml';
+// add backend rendering hook to show the correct media preview
+$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['cms/layout/class.tx_cms_layout.php']['tt_content_drawItem'][] = WEBcoast\Typo3BaseSetup\Hooks\PageLayoutView\MediaPreviewRenderer::class;
