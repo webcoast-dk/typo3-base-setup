@@ -1,6 +1,5 @@
 tt_content.textmedia {
     dataProcessing {
-        10.as = media
         20 >
     }
 

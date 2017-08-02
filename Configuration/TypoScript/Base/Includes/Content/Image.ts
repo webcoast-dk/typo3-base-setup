@@ -1,5 +1,10 @@
 tt_content.image {
     dataProcessing {
+        10 {
+            references {
+                fieldName = assets
+            }
+        }
         20 >
         20 = TYPO3\CMS\Frontend\DataProcessing\GalleryProcessor
         20 {

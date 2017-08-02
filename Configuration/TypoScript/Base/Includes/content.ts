@@ -24,7 +24,10 @@ lib.contentElement {
         defaultFirstHeaderLayout.data = register:defaultFirstHeaderLayout 
 
         defaultHeaderLayout = TEXT
-        defaultHeaderLayout.data = register:defaultHeaderLayout 
+        defaultHeaderLayout.data = register:defaultHeaderLayout
+
+        imageWidth = TEXT
+        imageWidth.data = register:imageWidth
     }
 }
 
