@@ -21,7 +21,7 @@ class MediaPreviewRenderer implements PageLayoutViewDrawItemHookInterface
      */
     public function preProcess(PageLayoutView &$parentObject, &$drawItem, &$headerContent, &$itemContent, array &$row)
     {
-        if ($drawItem === true) {
+//        if ($drawItem === true) {
             $CType = $row['CType'];
             $configuration = $GLOBALS['TCA']['tt_content']['types'][$CType];
             $fieldsShown = [];
@@ -63,6 +63,6 @@ class MediaPreviewRenderer implements PageLayoutViewDrawItemHookInterface
                 $itemContent .= $content;
                 $drawItem = false;
             }
-        }
+//        }
     }
 }
