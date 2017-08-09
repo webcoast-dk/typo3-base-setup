@@ -51,3 +51,5 @@ TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTypoScriptSetup('<INCLUDE_
 $GLOBALS['TYPO3_CONF_VARS']['RTE']['Presets']['default'] = 'EXT:typo3_base_setup/Configuration/Rte/default.yaml';
 // add backend rendering hook to show the correct media preview
 $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['cms/layout/class.tx_cms_layout.php']['tt_content_drawItem'][] = WEBcoast\Typo3BaseSetup\Hooks\PageLayoutView\MediaPreviewRenderer::class;
+// register update wizard
+$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update'][WEBcoast\Typo3BaseSetup\Install\FileReferenceWizard::class] = WEBcoast\Typo3BaseSetup\Install\FileReferenceWizard::class;
