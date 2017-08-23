@@ -11,6 +11,7 @@ lib.content.main {
 lib.contentElement {
     templateRootPaths.10 = EXT:typo3_base_setup/Resources/Private/Templates/Content
     partialRootPaths.10 = EXT:typo3_base_setup/Resources/Private/Partials/Content
+    partialRootPaths.11 = EXT:typo3_base_setup/Resources/Private/Partials
     layoutRootPaths.10 = EXT:typo3_base_setup/Resources/Private/Layouts/Content
 
     variables {
