@@ -35,6 +35,12 @@ TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile(
     'Configuration/TypoScript/FooterMenu',
     'Basic page setup (footer menu)'
 );
+// add sub menu setup
+TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile(
+    $_EXTKEY,
+    'Configuration/TypoScript/SubMenu',
+    'Basic page setup (sub menu)'
+);
 
 // register backend layout provider
 $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['BackendLayoutDataProvider']['typo3_base_setup'] = WEBcoast\Typo3BaseSetup\Backend\View\FileBackendLayoutProvider::class;
