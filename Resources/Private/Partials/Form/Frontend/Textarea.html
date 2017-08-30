@@ -4,8 +4,8 @@
 		<f:form.textarea
 			property="{element.identifier}"
 			id="{element.uniqueIdentifier}"
-			class="form__control"
-			rows="{element.properties.rows > 0 ? element.properties.rows : 10}"
+			class="{element.properties.elementClassAttribute}"
+			rows="{f:if(condition: '{element.properties.rows} > 0', then: element.properties.rows, else: 10)}"
 			cols="{element.properties.cols}"
 			errorClass="{element.properties.elementErrorClassAttribute}"
 			additionalAttributes="{formvh:translateElementProperty(element: element, property: 'fluidAdditionalAttributes')}"
