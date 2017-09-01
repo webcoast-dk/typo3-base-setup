@@ -1,22 +1,77 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:formvh="http://typo3.org/ns/TYPO3/CMS/Form/ViewHelpers" data-namespace-typo3-fluid="true">
 <f:form.validationResults for="{element.identifier}">
-	<div class="form__group{f:if(condition: '{validationResults.errors.0}', then: ' has-error')}">
-		<f:if condition="{doNotShowLabel} != 1">
-			<label class="form__label" for="{element.uniqueIdentifier}">{formvh:translateElementProperty(element: element, property: 'label')}<f:if condition="{element.required}"><f:render partial="Field/Required" /></f:if></label>
-		</f:if>
-		<div class="form__field">
-			<f:format.raw>
-				{elementContent}
-				<f:if condition="{validationResults.flattenedErrors}">
-					<p class="form__error">
-						<f:for each="{validationResults.errors}" as="error">
-							{formvh:translateElementError(element: element, code: error.code, arguments: error.arguments, defaultValue: error.message)}
-							<br />
-						</f:for>
-					</p>
-				</f:if>
-			</f:format.raw>
-		</div>
-	</div>
+	<f:switch expression="{element.properties.labelStyle}">
+		<f:case value="above">
+			<div class="form__group form__group--stacked{f:if(condition: '{validationResults.errors.0}', then: ' has-error')}">
+				<label class="form__label" for="{element.uniqueIdentifier}">{formvh:translateElementProperty(element: element, property: 'label')}<f:if condition="{element.required}"><f:render partial="Field/Required" /></f:if></label>
+				<div class="form__field">
+					<f:format.raw>
+						{elementContent}
+						<f:if condition="{validationResults.flattenedErrors}">
+							<p class="form__error">
+								<f:for each="{validationResults.errors}" as="error">
+									{formvh:translateElementError(element: element, code: error.code, arguments: error.arguments, defaultValue: error.message)}
+									<br />
+								</f:for>
+							</p>
+						</f:if>
+					</f:format.raw>
+				</div>
+			</div>
+		</f:case>
+		<f:case value="sr-only">
+			<div class="form__group{f:if(condition: '{validationResults.errors.0}', then: ' has-error')}">
+				<label class="sr-only" for="{element.uniqueIdentifier}">{formvh:translateElementProperty(element: element, property: 'label')}<f:if condition="{element.required}"><f:render partial="Field/Required" /></f:if></label>
+				<div class="form__field">
+					<f:format.raw>
+						{elementContent}
+						<f:if condition="{validationResults.flattenedErrors}">
+							<p class="form__error">
+								<f:for each="{validationResults.errors}" as="error">
+									{formvh:translateElementError(element: element, code: error.code, arguments: error.arguments, defaultValue: error.message)}
+									<br />
+								</f:for>
+							</p>
+						</f:if>
+					</f:format.raw>
+				</div>
+			</div>
+		</f:case>
+		<f:case value="hidden">
+			<div class="form__group{f:if(condition: '{validationResults.errors.0}', then: ' has-error')}">
+				<div class="form__field">
+					<f:format.raw>
+						{elementContent}
+						<f:if condition="{validationResults.flattenedErrors}">
+							<p class="form__error">
+								<f:for each="{validationResults.errors}" as="error">
+									{formvh:translateElementError(element: element, code: error.code, arguments: error.arguments, defaultValue: error.message)}
+									<br />
+								</f:for>
+							</p>
+						</f:if>
+					</f:format.raw>
+				</div>
+			</div>
+		</f:case>
+		<f:defaultCase>
+			<div class="form__group{f:if(condition: '{validationResults.errors.0}', then: ' has-error')}">
+				<label class="form__label" for="{element.uniqueIdentifier}">{formvh:translateElementProperty(element: element, property: 'label')}<f:if condition="{element.required}"><f:render partial="Field/Required" /></f:if></label>
+				<div class="form__field">
+					<f:format.raw>
+						{elementContent}
+						<f:if condition="{validationResults.flattenedErrors}">
+							<p class="form__error">
+								<f:for each="{validationResults.errors}" as="error">
+									{formvh:translateElementError(element: element, code: error.code, arguments: error.arguments, defaultValue: error.message)}
+									<br />
+								</f:for>
+							</p>
+						</f:if>
+					</f:format.raw>
+				</div>
+			</div>
+		</f:defaultCase>
+	</f:switch>
 </f:form.validationResults>
 </html>

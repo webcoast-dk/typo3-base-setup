@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2014-02-20T10:24:27Z" product-name="nawork_utilities">
+		<header/>
+		<body>
+			<trans-unit id="formEditor.elements.BaseFormElementMixin.editor.labelStyle.label">
+				<source>Label style</source>
+			</trans-unit>
+			<trans-unit id="formEditor.elements.BaseFormElementMixin.editor.labelStyle.default">
+				<source>Default (left)</source>
+			</trans-unit>
+			<trans-unit id="formEditor.elements.BaseFormElementMixin.editor.labelStyle.above">
+				<source>Above</source>
+			</trans-unit>
+			<trans-unit id="formEditor.elements.BaseFormElementMixin.editor.labelStyle.sr-only">
+				<source>Screen reader only</source>
+			</trans-unit>
+			<trans-unit id="formEditor.elements.BaseFormElementMixin.editor.labelStyle.hidden">
+				<source>Hidden</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
