@@ -1,7 +1,11 @@
 page = PAGE
 page {
-    includeCSS.styles = /static/css/styles.css
-    includeJS.scripts = /static/js/scripts.js
+    includeCSS {
+
+    }
+    includeJS {
+
+    }
 
     meta {
         viewport = width=device-width, initial-scale=1.0
