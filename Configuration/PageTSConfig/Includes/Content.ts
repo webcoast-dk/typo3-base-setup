@@ -24,6 +24,11 @@ TCEFORM.tt_content {
     sectionIndex.disabled = 1
     linkToTop.disabled = 1
 
+    # tab: categories
+    categories.disabled = 1
+    # tab: notes
+    rowDescription.disabled = 1
+
     # textmedia
     header_position.types.textmedia {
         disabled = 0
