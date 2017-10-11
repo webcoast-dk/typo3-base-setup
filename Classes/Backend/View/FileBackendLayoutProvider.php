@@ -94,7 +94,7 @@ class FileBackendLayoutProvider implements BackendLayout\DataProviderInterface
                 $title = $identifier;
             }
             $backendLayout = new BackendLayout\BackendLayout(
-                $extensionKey . '-' . $identifier,
+                strtolower($extensionKey . '-' . $identifier),
                 $title,
                 file_get_contents($directory . '/' . $fileName)
             );
