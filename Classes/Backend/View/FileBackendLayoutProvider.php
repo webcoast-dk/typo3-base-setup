@@ -86,15 +86,13 @@ class FileBackendLayoutProvider implements BackendLayout\DataProviderInterface
         $fileName = $identifier . '.ts';
         if (is_file($directory . '/' . $fileName) && fnmatch('*.ts', $fileName)) {
             // translate be_layout
-            $locallangId = 'LLL:EXT:' . $extensionKey . $languageFile . ':backendLayouts.' . strtolower(
-                    $identifier
-                );
+            $locallangId = 'LLL:EXT:' . $extensionKey . $languageFile . ':backendLayouts.' . $identifier;
             $title = LocalizationUtility::translate($locallangId, $extensionKey);
             if ($title === null) {
                 $title = $identifier;
             }
             $backendLayout = new BackendLayout\BackendLayout(
-                strtolower($extensionKey . '-' . $identifier),
+                $extensionKey . '-' . $identifier,
                 $title,
                 file_get_contents($directory . '/' . $fileName)
             );
