@@ -6,6 +6,14 @@ lib.content.main {
         orderBy = sorting
     }
     languageField = sys_language_uid
+    renderObj = COA
+    renderObj {
+        10 = LOAD_REGISTER
+
+        20 =< tt_content
+
+        100 = RESTORE_REGISTER
+    }
 }
 
 lib.contentElement {
