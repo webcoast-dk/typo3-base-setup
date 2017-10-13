@@ -1,19 +1,19 @@
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" xmlns:t="http://typo3.org/ns/WEBcoast/Typo3BaseSetup/ViewHelpers" data-namespace-typo3-fluid="true">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
 <f:if condition="{data.header}">
     <f:switch expression="{data.header_layout}">
         <f:case value="1">
             <f:alias map="{headerLayout: 1}">
-                <f:render section="headline" arguments="{_all}" />
+                <f:render partial="Headline" arguments="{_all}"/>
             </f:alias>
         </f:case>
         <f:case value="2">
             <f:alias map="{headerLayout: 2}">
-                <f:render section="headline" arguments="{_all}" />
+                <f:render partial="Headline" arguments="{_all}"/>
             </f:alias>
         </f:case>
         <f:case value="3">
             <f:alias map="{headerLayout: 3}">
-                <f:render section="headline" arguments="{_all}" />
+                <f:render partial="Headline" arguments="{_all}"/>
             </f:alias>
         </f:case>
         <f:case value="100">
@@ -25,12 +25,12 @@
                     <f:if condition="{defaultFirstHeaderLayout}">
                         <f:then>
                             <f:alias map="{headerLayout: defaultFirstHeaderLayout}">
-                                <f:render section="headline" arguments="{_all}" />
+                                <f:render partial="Headline" arguments="{_all}"/>
                             </f:alias>
                         </f:then>
                         <f:else>
                             <f:alias map="{headerLayout: 1}">
-                                <f:render section="headline" arguments="{_all}" />
+                                <f:render partial="Headline" arguments="{_all}"/>
                             </f:alias>
                         </f:else>
                     </f:if>
@@ -39,12 +39,12 @@
                     <f:if condition="{defaultHeaderLayout}">
                         <f:then>
                             <f:alias map="{headerLayout: defaultHeaderLayout}">
-                                <f:render section="headline" arguments="{_all}" />
+                                <f:render partial="Headline" arguments="{_all}"/>
                             </f:alias>
                         </f:then>
                         <f:else>
                             <f:alias map="{headerLayout: 2}">
-                                <f:render section="headline" arguments="{_all}" />
+                                <f:render partial="Headline" arguments="{_all}"/>
                             </f:alias>
                         </f:else>
                     </f:if>
@@ -53,32 +53,4 @@
         </f:defaultCase>
     </f:switch>
 </f:if>
-
-<f:section name="headline">
-    <f:if condition="{headerClass}">
-        <f:then>
-           <h{headerLayout} class="{headerClass}">
-                <f:render section="headlineContent" arguments="{_all}" />
-            </h{headerLayout}>
-        </f:then>
-        <f:else>
-            <h{headerLayout}>
-                <f:render section="headlineContent" arguments="{_all}" />
-            </h{headerLayout}>
-        </f:else>
-    </f:if>
-</f:section>
-
-<f:section name="headlineContent">
-    <f:if condition="{disableHeaderLink} != 1&&{data.header_link}">
-        <f:then>
-            <f:link.typolink parameter="{data.header_link}">
-                {data.header}
-            </f:link.typolink>
-        </f:then>
-        <f:else>
-            {data.header}
-        </f:else>
-    </f:if>
-</f:section>
 </html>
