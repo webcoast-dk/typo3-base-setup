@@ -1,2 +1,4 @@
 # cat=Backend; label=Add default backend layout; type=boolean
 defaultBackendLayoutEnable = 0
+# cat=Media; label=Enable YouTube helper for embed URL; type=boolean
+enableEmbedYouTubeHelper = 0
