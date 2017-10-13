@@ -9,6 +9,13 @@
                 <source>Content</source>
             </trans-unit>
 
+            <trans-unit id="tt_content.CType.image">
+                <source>Images/Videos</source>
+            </trans-unit>
+            <trans-unit id="tt_content.CType.image.description">
+                <source>Images and/or videos aligned in columns and rows.</source>
+            </trans-unit>
+
             <trans-unit id="tt_content.header_position.types.textmedia.above">
                 <source>Above</source>
             </trans-unit>

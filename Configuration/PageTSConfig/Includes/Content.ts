@@ -53,4 +53,7 @@ TCEFORM.tt_content {
         disabled = 0
         label = LLL:EXT:typo3_base_setup/Resources/Private/Language/locallang_backend.xlf:tt_content.imageheight.types.image
     }
+
+    # rename image content element
+    CType.altLabels.image = LLL:EXT:typo3_base_setup/Resources/Private/Language/locallang_backend.xlf:tt_content.CType.image
 }

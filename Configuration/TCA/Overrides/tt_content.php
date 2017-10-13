@@ -11,3 +11,10 @@ $GLOBALS['TCA']['tt_content']['types']['image']['showitem'] = preg_replace(
 
 // use "assets" instead of "image" to make it switchable with "textmedia" content type
 ExtensionManagementUtility::addToAllTCAtypes('tt_content', 'assets', 'image', 'replace:image');
+
+// rename tab "Images" to "Media"
+$GLOBALS['TCA']['tt_content']['types']['image']['showitem'] = preg_replace(
+    '/(--div--;[^;,]+)tabs.images/',
+    '\1tabs.media',
+    $GLOBALS['TCA']['tt_content']['types']['image']['showitem']
+);
