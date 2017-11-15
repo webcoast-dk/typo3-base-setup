@@ -50,7 +50,6 @@ if ((bool)$extensionConfiguration['defaultBackendLayoutEnable'] === true) {
     \WEBcoast\Typo3BaseSetup\Utility\ConfigurationUtility::registerBackendLayouts($_EXTKEY);
 }
 
-TYPO3\CMS\Core\Utility\ExtensionManagementUtility::registerPageTSConfigFile($_EXTKEY, 'Configuration/PageTSConfig/page_setup.ts', 'Page setup');
 // add default backend typoscript
 TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTypoScriptSetup('<INCLUDE_TYPOSCRIPT: source="FILE:EXT:typo3_base_setup/Configuration/TypoScript/Backend/setup.txt">');
 // add over default rte preset
