@@ -8,7 +8,7 @@
   <ul class="sitemap__list">
     <f:for each="{pages}" as="page">
       <li class="sitemap__item">
-        <f:render partial="Menu/Link" arguments="{page: page}" />
+        <f:render partial="Menu/Link" arguments="{page: page, linkClass: 'sitemap__link'}" />
         <f:if condition="{page.children -> f:count()} > 0">
           <f:render section="list" arguments="{pages: page.children}" />
         </f:if>
