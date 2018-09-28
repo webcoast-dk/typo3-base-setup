@@ -1,1 +1,1 @@
-<INCLUDE_TYPOSCRIPT: source="DIR:EXT:typo3_base_setup/Configuration/TypoScript/FooterMenu/Includes" extensions="ts">
+<INCLUDE_TYPOSCRIPT: source="DIR:EXT:typo3_base_setup/Configuration/TypoScript/FooterMenu/Includes" extensions="typoscript">

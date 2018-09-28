@@ -41,7 +41,7 @@ class FileBackendLayoutProvider implements BackendLayout\DataProviderInterface
                             continue;
                         }
 
-                        if (fnmatch('*.ts', $fileName)) {
+                        if (fnmatch('*.typoscript', $fileName)) {
                             $identifier = $extensionKey . '-' . substr($fileName, 0, -3);
                             $backendLayout = $this->getBackendLayout($identifier, $dataProviderContext->getPageId());
                             if ($backendLayout !== null) {
@@ -83,8 +83,8 @@ class FileBackendLayoutProvider implements BackendLayout\DataProviderInterface
         }
         // get absolute file path
         $directory = GeneralUtility::getFileAbsFileName('EXT:' . $extensionKey . $path);
-        $fileName = $identifier . '.ts';
-        if (is_file($directory . '/' . $fileName) && fnmatch('*.ts', $fileName)) {
+        $fileName = $identifier . '.typoscript';
+        if (is_file($directory . '/' . $fileName) && fnmatch('*.typoscript', $fileName)) {
             // translate be_layout
             $locallangId = 'LLL:EXT:' . $extensionKey . $languageFile . ':backendLayouts.' . $identifier;
             $title = LocalizationUtility::translate($locallangId, $extensionKey);
