@@ -8,7 +8,7 @@ class ConfigurationUtility
     /**
      * @param string $extensionKey The extension key to look for backend layouts
      * @param string $path         Optional path to backend layouts; default: 'Configuration/BackendLayouts'
-     * @param string $languageFile Optional path to language file; default: 'Resources/Private/locallang_backend.xlf'
+     * @param string $languageFile Optional path to language file; default: 'Resources/Private/Language/locallang_backend.xlf'
      */
     public static function registerBackendLayouts($extensionKey, $path = null, $languageFile = null)
     {

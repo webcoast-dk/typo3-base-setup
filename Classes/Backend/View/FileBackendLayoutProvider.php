@@ -42,7 +42,7 @@ class FileBackendLayoutProvider implements BackendLayout\DataProviderInterface
                         }
 
                         if (fnmatch('*.typoscript', $fileName)) {
-                            $identifier = $extensionKey . '-' . substr($fileName, 0, -3);
+                            $identifier = $extensionKey . '-' . substr($fileName, 0, -11);
                             $backendLayout = $this->getBackendLayout($identifier, $dataProviderContext->getPageId());
                             if ($backendLayout !== null) {
                                 $backendLayoutCollection->add($backendLayout);
