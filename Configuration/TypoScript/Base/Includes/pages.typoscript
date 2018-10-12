@@ -83,6 +83,10 @@ page {
 
         variables {
             contentMain =< lib.content.main
+            layout = TEXT
+            layout {
+                data = register:backendLayout
+            }
         }
 
         dataProcessing {
