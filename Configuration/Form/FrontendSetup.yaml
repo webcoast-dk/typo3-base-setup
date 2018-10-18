@@ -6,8 +6,9 @@ TYPO3:
           formElementsDefinition:
             Textarea:
               properties:
-                elementClassAttribute: '__UNSET'
+                elementClassAttribute: 'form__control'
                 rows: 5
+
       mixins:
         formElementMixins:
           BaseFormElementMixin:
@@ -21,3 +22,4 @@ TYPO3:
           TextMixin:
             properties:
               elementClassAttribute: 'form__control'
+              elementErrorClassAttribute: 'has-error'
