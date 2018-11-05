@@ -28,5 +28,8 @@
 		"typo3/cms-frontend": "^9.4.0",
 		"typo3/cms-install": "^9.4.0",
 		"typo3fluid/fluid": "^2.5.2"
+	},
+	"suggest": {
+		"typo3/cms-rte-ckeditor": "The currently preferred rich text editor for TYPO3, to make editing easier and more flexible."
 	}
 }
