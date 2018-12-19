@@ -3,12 +3,12 @@
     <f:then>
         <f:if condition="{linkClass}">
             <f:then>
-                <f:link.external uri="{page.finalLinkParameter}" class="{linkClass}" target="_blank">
+                <f:link.external uri="{page.finalLinkParameter}" class="{linkClass}" target="_blank" title="{linkTitle}">
                     <f:render section="content" arguments="{_all}" />
                 </f:link.external>
             </f:then>
             <f:else>
-                <f:link.external uri="{page.finalLinkParameter}" target="_blank">
+                <f:link.external uri="{page.finalLinkParameter}" target="_blank" title="{linkTitle}">
                     <f:render section="content" arguments="{_all}" />
                 </f:link.external>
             </f:else>
@@ -17,12 +17,12 @@
     <f:else>
         <f:if condition="{linkClass}">
             <f:then>
-                <f:link.page pageUid="{page.finalLinkParameter}" class="{linkClass}">
+                <f:link.page pageUid="{page.finalLinkParameter}" class="{linkClass}" title="{linkTitle}" additionalParams="{additionalParameters}">
                     <f:render section="content" arguments="{_all}" />
                 </f:link.page>
             </f:then>
             <f:else>
-                <f:link.page pageUid="{page.finalLinkParameter}">
+                <f:link.page pageUid="{page.finalLinkParameter}" title="{linkTitle}" additionalParams="{additionalParameters}">
                     <f:render section="content" arguments="{_all}" />
                 </f:link.page>
             </f:else>
