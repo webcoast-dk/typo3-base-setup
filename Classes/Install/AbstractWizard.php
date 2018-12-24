@@ -21,6 +21,13 @@ abstract class AbstractWizard implements UpgradeWizardInterface, ChattyInterface
 	protected $description = '';
 
 	/**
+	 * Allow status output when showing available wizards
+	 *
+	 * @var string|null
+	 */
+	protected $status = null;
+
+	/**
 	 * @var OutputInterface
 	 */
 	protected $output = null;
@@ -45,12 +52,15 @@ abstract class AbstractWizard implements UpgradeWizardInterface, ChattyInterface
 	}
 
 	/**
-	 * Return the description for this wizard
+	 * Return the description for this wizard or the status text, if set
 	 *
 	 * @return string
 	 */
 	public function getDescription(): string
 	{
+		if ($this->status !== null) {
+			return $this->status;
+		}
 		return $this->description;
 	}
 
