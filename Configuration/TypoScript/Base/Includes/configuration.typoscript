@@ -2,8 +2,8 @@ lib.pageTitle = TEXT
 lib.pageTitle {
     # use the page's title field
     field = title
-    # override this with TSFE:altPageTitle if it is set
-    override.data = TSFE:altPageTitle
+    # override this with TSFE:applicationData|pageTitle if it is set
+    override.data = TSFE:applicationData|pageTitle
     # append custom text if set, e.g. from an extension for pagination
     append = TEXT
     append {
