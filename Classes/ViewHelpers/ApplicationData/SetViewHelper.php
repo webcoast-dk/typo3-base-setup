@@ -23,7 +23,11 @@ class SetViewHelper extends AbstractViewHelper
         $value = $renderChildrenClosure();
         $key = $arguments['key'];
 
-        self::setValueInPath($key, $value);
+        if ($key === 'indexedDocTitle') {
+            self::getTyposcriptFrontendController()->indexedDocTitle = $value;
+        } else {
+            self::setValueInPath($key, $value);
+        }
     }
 
     /**

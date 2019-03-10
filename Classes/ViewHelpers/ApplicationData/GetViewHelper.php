@@ -21,7 +21,11 @@ class GetViewHelper extends AbstractViewHelper
     {
         $key = $arguments['key'];
 
-        return self::getValueFromPath($key);
+        if ($key === 'indexedDocTitle') {
+            return self::getTyposcriptFrontendController()->indexedDocTitle;
+        } else {
+            return self::getValueFromPath($key);
+        }
     }
 
     /**
