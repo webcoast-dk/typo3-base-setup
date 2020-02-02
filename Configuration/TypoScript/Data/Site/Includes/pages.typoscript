@@ -1,0 +1,11 @@
+page {
+    20 {
+        dataProcessing {
+            # site data
+            21 = TYPO3\CMS\Frontend\DataProcessing\SiteProcessor
+            21 {
+                as = site
+            }
+        }
+    }
+}

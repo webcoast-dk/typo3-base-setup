@@ -90,22 +90,6 @@ page {
         }
 
         dataProcessing {
-            # main menu
-            10 = WEBcoast\Typo3BaseSetup\DataProcessing\MenuProcessor
-            10 {
-                as = menuMain
-                entryLevel = 0
-                levels = 3
-            }
-
-            # homepage data
-            20 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
-            20 {
-                table = pages
-                uidInList.data = leveluid:0
-                pidInList = 0
-                as = homepage
-            }
         }
     }
 

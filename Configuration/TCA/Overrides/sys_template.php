@@ -8,33 +8,51 @@ ExtensionManagementUtility::addStaticFile(
     'Configuration/TypoScript/Base',
     'Basic page setup (main)'
 );
+// add main menu setup
+ExtensionManagementUtility::addStaticFile(
+    'typo3_base_setup',
+    'Configuration/TypoScript/Menu/Main',
+    'Basic page setup (main menu)'
+);
 // add language menu setup
 ExtensionManagementUtility::addStaticFile(
     'typo3_base_setup',
-    'Configuration/TypoScript/LanguageMenu',
+    'Configuration/TypoScript/Menu/Language',
     'Basic page setup (language menu)'
 );
 // add breadcrumb menu setup
 ExtensionManagementUtility::addStaticFile(
     'typo3_base_setup',
-    'Configuration/TypoScript/BreadcrumbMenu',
+    'Configuration/TypoScript/Menu/Breadcrumb',
     'Basic page setup (breadcrumb menu)'
 );
 // add header menu setup
 ExtensionManagementUtility::addStaticFile(
     'typo3_base_setup',
-    'Configuration/TypoScript/HeaderMenu',
+    'Configuration/TypoScript/Menu/Header',
     'Basic page setup (header menu)'
 );
 // add footer menu setup
 ExtensionManagementUtility::addStaticFile(
     'typo3_base_setup',
-    'Configuration/TypoScript/FooterMenu',
+    'Configuration/TypoScript/Menu/Footer',
     'Basic page setup (footer menu)'
 );
 // add sub menu setup
 ExtensionManagementUtility::addStaticFile(
     'typo3_base_setup',
-    'Configuration/TypoScript/SubMenu',
+    'Configuration/TypoScript/Menu/Sub',
     'Basic page setup (sub menu)'
+);
+// add site data setup
+ExtensionManagementUtility::addStaticFile(
+    'typo3_base_setup',
+    'Configuration/TypoScript/Data/Site',
+    'Basic page setup (site data)'
+);
+// add homepage data setup
+ExtensionManagementUtility::addStaticFile(
+    'typo3_base_setup',
+    'Configuration/TypoScript/Data/Homepage',
+    'Basic page setup (homepage data)'
 );

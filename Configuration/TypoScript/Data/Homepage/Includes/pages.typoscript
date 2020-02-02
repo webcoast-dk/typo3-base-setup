@@ -1,0 +1,14 @@
+page {
+    20 {
+        dataProcessing {
+            # homepage data
+            20 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+            20 {
+                table = pages
+                uidInList.data = leveluid:0
+                pidInList = 0
+                as = homepage
+            }
+        }
+    }
+}
