@@ -1,16 +1,15 @@
 <?php
 
-
 if (!defined('TYPO3_MODE')) {
     die('Access denied!');
 }
 
 // register backend layout provider
 $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['BackendLayoutDataProvider']['typo3_base_setup'] = WEBcoast\Typo3BaseSetup\Backend\View\FileBackendLayoutProvider::class;
-$extensionConfiguration = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf'][$_EXTKEY]);
-if ((bool)$extensionConfiguration['defaultBackendLayoutEnable'] === true) {
+$extensionConfiguration = TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(TYPO3\CMS\Core\Configuration\ExtensionConfiguration::class);
+if ((bool)(int)$extensionConfiguration->get('typo3_base_setup', 'defaultBackendLayoutEnable') === true) {
     // register default backend layout
-    \WEBcoast\Typo3BaseSetup\Utility\ConfigurationUtility::registerBackendLayouts($_EXTKEY);
+    WEBcoast\Typo3BaseSetup\Utility\ConfigurationUtility::registerBackendLayouts('typo3_base_setup');
 }
 
 // add default backend typoscript
