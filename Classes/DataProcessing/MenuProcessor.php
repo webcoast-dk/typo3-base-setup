@@ -2,7 +2,8 @@
 
 namespace WEBcoast\Typo3BaseSetup\DataProcessing;
 
-
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Core\Utility\HttpUtility;
 use TYPO3\CMS\Frontend\Controller\TypoScriptFrontendController;
 use TYPO3\CMS\Frontend\Page\PageRepository;
 
@@ -20,6 +21,8 @@ class MenuProcessor extends \TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
     {
         parent::__construct();
         $this->pageRepository = $this->getTypoScriptFrontendController()->sys_page;
+
+        $this->allowedConfigurationKeys[] = 'addQueryParams';
     }
 
     /**
@@ -82,7 +85,6 @@ class MenuProcessor extends \TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
                     true
                 );
             } catch (\Exception $e) {
-
             }
             $finalLinkParameter = $shortcutPage['uid'];
         } elseif ($page['doktype'] == PageRepository::DOKTYPE_LINK) {
@@ -93,5 +95,37 @@ class MenuProcessor extends \TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
         }
 
         return $this->jsonEncode($finalLinkParameter);
+    }
+
+    public function prepareLevelLanguageConfiguration()
+    {
+        parent::prepareLevelLanguageConfiguration();
+
+        if (isset($this->processorConfiguration['addQueryParams'])) {
+            $addQueryParams = GeneralUtility::trimExplode(',', $this->processorConfiguration['addQueryParams']);
+            unset($this->processorConfiguration['addQueryParams']);
+
+            $additionalParams = [];
+            foreach ($addQueryParams as $param) {
+                $value = GeneralUtility::_GP($param);
+                if (!empty($value)) {
+                    $additionalParams[$param] = $value;
+                }
+            }
+
+            if (!empty($additionalParams)) {
+                $this->menuLevelConfig['additionalParams'] = '&' . HttpUtility::buildQueryString($additionalParams);
+            }
+            $this->menuLevelConfig['stdWrap.']['cObject.'] = array_replace_recursive(
+                $this->menuLevelConfig['stdWrap.']['cObject.'],
+                [
+                    '80' => 'TEXT',
+                    '80.' => [
+                        'value' => json_encode($additionalParams),
+                        'wrap' => ',"additionalParams":|'
+                    ]
+                ]
+            );
+        }
     }
 }
