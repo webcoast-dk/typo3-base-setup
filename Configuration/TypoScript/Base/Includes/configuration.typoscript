@@ -1,18 +1,3 @@
-lib.pageTitle = TEXT
-lib.pageTitle {
-    # use the page's title field
-    field = title
-    # override this with TSFE:applicationData|pageTitle if it is set
-    override.data = TSFE:applicationData|pageTitle
-    # append custom text if set, e.g. from an extension for pagination
-    append = TEXT
-    append {
-        data = TSFE:applicationData|pageTitleAppend
-        required = 1
-        noTrimWrap = | - ||
-    }
-}
-
 config {
     absRefPrefix = /
     disablePrefixComment = 1
@@ -24,9 +9,7 @@ config {
     sendCacheHeaders = 1
     sendCacheHeaders_onlyWhenLoginDeniedInBranch = 0
 
-    noPageTitle = 1
-    pageTitle.cObject =< lib.pageTitle
-    pageTitle.cObject {
+    pageTitle {
         orderedStdWrap {
             10 {
                 append = TEXT

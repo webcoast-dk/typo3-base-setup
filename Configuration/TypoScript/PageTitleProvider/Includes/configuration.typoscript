@@ -1,0 +1,12 @@
+config {
+    pageTitleFields = title
+    pageTitleProviders {
+        extensionPageTitle {
+            provider = WEBcoast\Typo3BaseSetup\PageTitle\ExtensionPageTitleProvider
+            before = altPageTitle
+        }
+        record {
+            provider = WEBcoast\Typo3BaseSetup\PageTitle\RecordPageTitleProvider
+        }
+    }
+}

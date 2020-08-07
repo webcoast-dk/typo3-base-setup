@@ -38,3 +38,9 @@ ExtensionManagementUtility::addStaticFile(
     'Configuration/TypoScript/SubMenu',
     'Basic page setup (sub menu)'
 );
+// add page title provider setup
+ExtensionManagementUtility::addStaticFile(
+    'typo3_base_setup',
+    'Configuration/TypoScript/PageTitleProvider',
+    'Basic page setup (page title provider)'
+);
