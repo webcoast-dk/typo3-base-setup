@@ -1,0 +1,3 @@
+tt_content.image.dataProcessing.20 = WEBcoast\Typo3BaseSetup\DataProcessing\GalleryProcessor
+tt_content.textpic.dataProcessing.20 = WEBcoast\Typo3BaseSetup\DataProcessing\GalleryProcessor
+tt_content.textmedia.dataProcessing.20 < tt_content.textpic.dataProcessing.20
