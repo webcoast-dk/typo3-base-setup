@@ -30,21 +30,40 @@ class GalleryProcessor extends \TYPO3\CMS\Frontend\DataProcessing\GalleryProcess
             // Calculate the scaling correction when the total of media elements is wider than the gallery width
             for ($row = 1; $row <= $this->galleryData['count']['rows']; $row++) {
                 $totalRowWidth = 0;
+                $actualColumns = 0;
                 for ($column = 1; $column <= $this->galleryData['count']['columns']; $column++) {
                     $fileKey = (($row - 1) * $this->galleryData['count']['columns']) + $column - 1;
                     if ($fileKey > $this->galleryData['count']['files'] - 1) {
-                        break 2;
+                        continue;
                     }
                     $currentMediaScaling = $this->equalMediaHeight / max($this->getCroppedDimensionalProperty($this->fileObjects[$fileKey], 'height'), 1);
                     $totalRowWidth += $this->getCroppedDimensionalProperty($this->fileObjects[$fileKey], 'width') * $currentMediaScaling;
+                    $actualColumns++;
                 }
-                $this->galleryData['rows'][$row]['scaling'] = $totalRowWidth / $galleryWidthMinusBorderAndSpacing;
+                $columnSpacingTotal = ($actualColumns - 1) * $this->columnSpacing;
+                $galleryWidthMinusBorderAndSpacing = max($this->galleryData['width'] - $columnSpacingTotal, 1);
+                if ($this->borderEnabled) {
+                    $borderPaddingTotal = $actualColumns * 2 * $this->borderPadding;
+                    $borderWidthTotal = $actualColumns * 2 * $this->borderWidth;
+                    $galleryWidthMinusBorderAndSpacing = $galleryWidthMinusBorderAndSpacing - $borderPaddingTotal - $borderWidthTotal;
+                }
+                if ($totalRowWidth > $galleryWidthMinusBorderAndSpacing) {
+                    $this->galleryData['rows'][$row]['scaling'] = $totalRowWidth / $galleryWidthMinusBorderAndSpacing;
+                } else {
+                    $columnWidth = ($this->galleryData['width'] - $this->columnSpacing * ($this->galleryData['count']['columns'] - 1)) / $this->galleryData['count']['columns'];
+                    if ($this->borderEnabled) {
+                        $borderPaddingTotal = $this->galleryData['count']['columns'] * 2 * $this->borderPadding;
+                        $borderWidthTotal = $this->galleryData['count']['columns'] * 2 * $this->borderWidth;
+                        $columnWidth = $columnWidth - $borderPaddingTotal - $borderWidthTotal;
+                    }
+                    $this->galleryData['rows'][$row]['scaling'] = $totalRowWidth / $columnWidth;
+                }
             }
 
             // Set the corrected dimensions for each media element
             foreach ($this->fileObjects as $key => $fileObject) {
-                $mediaHeight = floor($this->equalMediaHeight / $this->galleryData['rows'][ceil(($key + 1) / $this->galleryData['count']['columns'])]['scaling']);
-                $mediaWidth = floor(
+                $mediaHeight = round($this->equalMediaHeight / $this->galleryData['rows'][ceil(($key + 1) / $this->galleryData['count']['columns'])]['scaling']);
+                $mediaWidth = round(
                     $this->getCroppedDimensionalProperty($fileObject, 'width') * ($mediaHeight / max($this->getCroppedDimensionalProperty($fileObject, 'height'), 1))
                 );
                 $this->mediaDimensions[$key] = [
