@@ -8,7 +8,7 @@
     <f:else>
         <f:if condition="{data.image_zoom}">
             <f:then>
-                <a href="{f:uri.image(src: mediaItem.uid, treatIdAsReference: 1)}" class="js-lightbox" data-gallery="gallery-{data.uid}" target="_blank" title="{f:if(condition: mediaItem.title, then: mediaItem.title, else: mediaItem.description)}">
+                <a href="{f:uri.image(src: mediaItem.uid, treatIdAsReference: 1)}" class="js-lightbox" data-gallery="gallery-{data.uid}" target="_blank" title="{f:if(condition: mediaItem.title, then: mediaItem.title, else: mediaItem.description) -> f:format.nl2br() -> f:format.htmlspecialchars()}">
                     <f:render partial="Media/Resource" arguments="{_all}"/>
                 </a>
             </f:then>
