@@ -11,7 +11,6 @@
         <f:then>
             <f:switch expression="{data.imageorient}">
                 <f:case value="0">
-                    <f:render partial="Header" arguments="{_all}" />
                     <div class="textmedia textmedia--top">
                         <div class="textmedia__media">
                             <t:alias map="{imageWidth: '{t:math.forceIntInRange(value: \'{data.imagewidth}\', min: 1, max: \'{imageWidth}\', defaultValue: \'{imageWidth}\')}', imageWidthMd: '{t:math.forceIntInRange(value: \'{data.imagewidth}\', min: 1, max: \'{imageWidthMd / 2}\', defaultValue: \'{imageWidthMd / 2}\')}', imageWidthSm: '{t:math.forceIntInRange(value: \'{data.imagewidth}\', min: 1, max: \'{imageWidthSm / 2}\', defaultValue: \'{imageWidthSm / 2}\')}', imageWidthXs: '{t:math.forceIntInRange(value: \'{data.imagewidth}\', min: 1, max: \'{imageWidthXs / 2}\', defaultValue: \'{imageWidthXs / 2}\')}'}">
@@ -24,7 +23,6 @@
                     </div>
                 </f:case>
                 <f:case value="1">
-                    <f:render partial="Header" arguments="{_all}" />
                     <div class="textmedia textmedia--top-right">
                         <div class="textmedia__media">
                             <t:alias map="{imageWidth: '{t:math.forceIntInRange(value: \'{data.imagewidth}\', min: 1, max: \'{imageWidth}\', defaultValue: \'{imageWidth}\')}', imageWidthMd: '{t:math.forceIntInRange(value: \'{data.imagewidth}\', min: 1, max: \'{imageWidthMd / 2}\', defaultValue: \'{imageWidthMd / 2}\')}', imageWidthSm: '{t:math.forceIntInRange(value: \'{data.imagewidth}\', min: 1, max: \'{imageWidthSm / 2}\', defaultValue: \'{imageWidthSm / 2}\')}', imageWidthXs: '{t:math.forceIntInRange(value: \'{data.imagewidth}\', min: 1, max: \'{imageWidthXs / 2}\', defaultValue: \'{imageWidthXs / 2}\')}'}">
@@ -37,7 +35,6 @@
                     </div>
                 </f:case>
                 <f:case value="2">
-                    <f:render partial="Header" arguments="{_all}" />
                     <div class="textmedia textmedia--top-left">
                         <div class="textmedia__media">
                             <t:alias map="{imageWidth: '{t:math.forceIntInRange(value: \'{data.imagewidth}\', min: 1, max: \'{imageWidth}\', defaultValue: \'{imageWidth}\')}', imageWidthMd: '{t:math.forceIntInRange(value: \'{data.imagewidth}\', min: 1, max: \'{imageWidthMd / 2}\', defaultValue: \'{imageWidthMd / 2}\')}', imageWidthSm: '{t:math.forceIntInRange(value: \'{data.imagewidth}\', min: 1, max: \'{imageWidthSm / 2}\', defaultValue: \'{imageWidthSm / 2}\')}', imageWidthXs: '{t:math.forceIntInRange(value: \'{data.imagewidth}\', min: 1, max: \'{imageWidthXs / 2}\', defaultValue: \'{imageWidthXs / 2}\')}'}">
@@ -50,7 +47,6 @@
                     </div>
                 </f:case>
                 <f:case value="8">
-                    <f:render partial="Header" arguments="{_all}" />
                     <div class="textmedia textmedia--bottom">
                         <div class="textmedia__text">
                             <f:render partial="Text" arguments="{_all}" />
@@ -63,7 +59,6 @@
                     </div>
                 </f:case>
                 <f:case value="9">
-                    <f:render partial="Header" arguments="{_all}" />
                     <div class="textmedia textmedia--bottom-right">
                         <div class="textmedia__text">
                             <f:render partial="Text" arguments="{_all}" />
@@ -76,7 +71,6 @@
                     </div>
                 </f:case>
                 <f:case value="10">
-                    <f:render partial="Header" arguments="{_all}" />
                     <div class="textmedia textmedia--bottom-left">
                         <div class="textmedia__text">
                             <f:render partial="Text" arguments="{_all}" />
