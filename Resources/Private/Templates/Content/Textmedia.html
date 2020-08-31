@@ -172,13 +172,6 @@
 </f:section>
 
 <f:section name="Media">
-    <f:if condition="{data.imagecols} > 1 && {files -> f:count()} > 1">
-        <f:then>
-            <f:render partial="Gallery" arguments="{_all}" />
-        </f:then>
-        <f:else>
-            <f:render partial="Media" arguments="{_all}"/>
-        </f:else>
-    </f:if>
+    <f:render partial="Gallery" arguments="{_all}" />
 </f:section>
 </html>
