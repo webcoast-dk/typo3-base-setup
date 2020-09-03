@@ -72,13 +72,19 @@ page {
 
     20 = FLUIDTEMPLATE
     20 {
-        file =
+        templateName.data = register:backendLayout
+
+        templateRootPaths {
+            10 = EXT:typo3_base_setup/Resources/Private/Templates/Page
+        }
+
         partialRootPaths {
-            10 = EXT:typo3_base_setup/Resources/Private/Partials
+            10 = EXT:typo3_base_setup/Resources/Private/Partials/Page
+            11 = EXT:typo3_base_setup/Resources/Private/Partials
         }
 
         layoutRootPaths {
-            10 = EXT:typo3_base_setup/Resources/Private/Layouts
+            10 = EXT:typo3_base_setup/Resources/Private/Layouts/Page
         }
 
         variables {
