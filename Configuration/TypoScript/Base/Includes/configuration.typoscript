@@ -9,16 +9,8 @@ config {
     sendCacheHeaders = 1
     sendCacheHeaders_onlyWhenLoginDeniedInBranch = 0
 
-    pageTitle {
-        orderedStdWrap {
-            10 {
-                append = TEXT
-                append {
-                    data = leveltitle:0
-                    if.isTrue.data = level
-                    noTrimWrap = | - ||
-                }
-            }
-        }
-    }
+    # Ensure correct display of page title
+    pageTitleFirst = 1
+    pageTitleSeparator = -
+    pageTitleSeparator.noTrimWrap = | | |
 }

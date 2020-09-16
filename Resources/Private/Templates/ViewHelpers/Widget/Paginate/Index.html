@@ -15,16 +15,22 @@
         <nav role="doc-pagelist" class="pagination">
             <ul class="pagination__list">
                 <f:if condition="{pagination.previousPage}">
-                    <li class="pagination__item">
+                    <li class="pagination__item pagination__item--previous">
                         <f:if condition="{pagination.previousPage} > 1">
                             <f:then>
                                 <f:widget.link useCacheHash="1" arguments="{currentPage: pagination.previousPage}" class="pagination__link">
-                                    <f:translate key="paginate_previous"/>
+                                    <f:if condition="{settings.pagination.translatePrevNext}">
+                                        <f:then><f:translate key="widget.pagination.previous"/></f:then>
+                                        <f:else>&nbsp;</f:else>
+                                    </f:if>
                                 </f:widget.link>
                             </f:then>
                             <f:else>
                                 <f:widget.link class="pagination__link">
-                                    <f:translate key="paginate_previous"/>
+                                    <f:if condition="{settings.pagination.translatePrevNext}">
+                                        <f:then><f:translate key="widget.pagination.previous"/></f:then>
+                                        <f:else>&nbsp;</f:else>
+                                    </f:if>
                                 </f:widget.link>
                             </f:else>
                         </f:if>
@@ -66,9 +72,12 @@
                     </li>
                 </f:if>
                 <f:if condition="{pagination.nextPage}">
-                    <li class="pagination__item">
+                    <li class="pagination__item pagination__item--next">
                         <f:widget.link class="pagination__link" useCacheHash="1" arguments="{currentPage: pagination.nextPage}">
-                            <f:translate key="paginate_next"/>
+                            <f:if condition="{settings.pagination.translatePrevNext}">
+                                <f:then><f:translate id="widget.pagination.next" /></f:then>
+                                <f:else>&nbsp;</f:else>
+                            </f:if>
                         </f:widget.link>
                     </li>
                 </f:if>

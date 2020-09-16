@@ -7,6 +7,7 @@ use TYPO3\CMS\Core\Resource\FileInterface;
 use TYPO3\CMS\Core\Resource\FileReference;
 use TYPO3\CMS\Core\Resource\Rendering\FileRendererInterface;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Core\Utility\MathUtility;
 use TYPO3\CMS\Extbase\Service\ImageService;
 use TYPO3Fluid\Fluid\Core\ViewHelper\TagBuilder;
 
@@ -52,7 +53,17 @@ class PictureTagRenderer implements FileRendererInterface
             $srcset = [$this->imageService->getImageUri($defaultImage) . ' 1x'];
             foreach($options['additionalConfig']['defaultScaleVariants'] as $scale) {
                 if ($scale > 1) {
-                    $imgVariant = $this->processImage($image, $width * $scale, $height * $scale, $cropVariantCollection, $cropVariant);
+                    $widthSuffix = '';
+                    $heightSuffix = '';
+                    if (!MathUtility::canBeInterpretedAsInteger(substr($width, -1))) {
+                        $widthSuffix = substr($width, - 1);
+                        $width = substr($width, 0, -1);
+                    }
+                    if (!MathUtility::canBeInterpretedAsInteger(substr($height, -1))) {
+                        $heightSuffix = substr($height, -1);
+                        $height = substr($height, 0, -1);
+                    }
+                    $imgVariant = $this->processImage($image, ($width * $scale) . $widthSuffix, ($height * $scale) . $heightSuffix, $cropVariantCollection, $cropVariant);
                     $srcset[] = $this->imageService->getImageUri($imgVariant) . ' ' . $scale . 'x';
                 }
             }
@@ -89,9 +100,21 @@ class PictureTagRenderer implements FileRendererInterface
                 if (isset($sourceDefinition['media'])) {
                     $sourceTag->addAttribute('media', $sourceDefinition['media']);
                 }
+                $width = $sourceDefinition['width'];
+                $height = $sourceDefinition['height'];
+                $widthSuffix = '';
+                $heightSuffix = '';
+                if (!MathUtility::canBeInterpretedAsInteger(substr($width, -1))) {
+                    $widthSuffix = substr($width, - 1);
+                    $width = substr($width, 0, -1);
+                }
+                if (!MathUtility::canBeInterpretedAsInteger(substr($height, -1))) {
+                    $heightSuffix = substr($height, -1);
+                    $height = substr($height, 0, -1);
+                }
                 $srcset = [];
                 foreach($sourceDefinition['scaleVariants'] ?? [1] as $scale) {
-                    $imgVariant = $this->processImage($image, $sourceDefinition['width'] * $scale, $sourceDefinition['height'] * $scale, $cropVariantCollection, $cropVariant);
+                    $imgVariant = $this->processImage($image, ($width * $scale) . $widthSuffix, ($height * $scale) . $heightSuffix, $cropVariantCollection, $cropVariant);
                     $srcset[] = $this->imageService->getImageUri($imgVariant) . ' ' . $scale . 'x';
                 }
                 $sourceTag->addAttribute('srcset', implode(', ', $srcset));

@@ -4,6 +4,12 @@
     across multiple sources, for example the frontend login content element.
 </f:comment>
 
+<f:section name="Header">
+    <f:if condition="!{settings.disableHeaderRendering}">
+        <f:render partial="Header/All" arguments="{_all}" />
+    </f:if>
+</f:section>
+
 <f:section name="Main">
     <f:if condition="{content}">
         <f:then>{content -> f:format.raw()}</f:then>
