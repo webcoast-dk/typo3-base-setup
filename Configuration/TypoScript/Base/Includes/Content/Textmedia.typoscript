@@ -1,8 +1,4 @@
 tt_content.textmedia {
-    dataProcessing {
-        20 >
-    }
-
     variables {
         imageWidth = TEXT
         imageWidth.data = register:imageWidth
