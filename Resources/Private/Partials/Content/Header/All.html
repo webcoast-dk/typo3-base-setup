@@ -6,12 +6,12 @@
             layout: data.header_layout,
             positionClass: '{f:if(condition: data.header_position, then: \'ce-headline-{data.header_position}\')}',
             link: data.header_link,
-            default: '{f:if(condition: \'{cObjNumber} > 1\', then: defaultHeaderLayout, else: defaultFirstHeaderLayout)}'}"/>
+            default: '{f:if(condition: \'{cObjNumber} == 1\', then: defaultFirstHeaderLayout, else: defaultHeaderLayout)}'}"/>
         <f:render partial="Header/SubHeader" arguments="{
             subheader: data.subheader,
             layout: data.header_layout,
             positionClass: '{f:if(condition: data.header_position, then: \'ce-headline-{data.header_position}\')}',
-            default: '{f:if(condition: \'{cObjNumber} > 1\', then: defaultHeaderLayout, else: defaultFirstHeaderLayout)}'}"/>
+            default: '{f:if(condition: \'{cObjNumber} == 1\', then: defaultHeaderLayout, else: defaultFirstHeaderLayout)}'}"/>
         <f:render partial="Header/Date" arguments="{
             date: data.date,
             positionClass: '{f:if(condition: data.header_position, then: \'ce-headline-{data.header_position}\')}'}"/>
