@@ -9,6 +9,10 @@ lib.content.main {
     renderObj = COA
     renderObj {
         10 = LOAD_REGISTER
+        10 {
+            # Load cObj number as register to make it accessible within extbase extensions
+            cObjNumber.data = cObj:parentRecordNumber
+        }
 
         20 =< tt_content
 
@@ -24,7 +28,7 @@ lib.contentElement {
 
     variables {
         cObjNumber = TEXT
-        cObjNumber.data = cObj:parentRecordNumber
+        cObjNumber.data = register:cObjNumber
 
         disableHeaderLink = TEXT
         disableHeaderLink.value = 1
