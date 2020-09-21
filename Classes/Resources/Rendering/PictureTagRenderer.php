@@ -114,7 +114,7 @@ class PictureTagRenderer implements FileRendererInterface
                 }
                 $srcset = [];
                 foreach($sourceDefinition['scaleVariants'] ?? [1] as $scale) {
-                    $imgVariant = $this->processImage($image, ($width * $scale) . $widthSuffix, ($height * $scale) . $heightSuffix, $cropVariantCollection, $cropVariant);
+                    $imgVariant = $this->processImage($image, ($width * $scale) . $widthSuffix, ($height * $scale) . $heightSuffix, $cropVariantCollection, $sourceDefinition['cropVariant'] ?? $cropVariant);
                     $srcset[] = $this->imageService->getImageUri($imgVariant) . ' ' . $scale . 'x';
                 }
                 $sourceTag->addAttribute('srcset', implode(', ', $srcset));
