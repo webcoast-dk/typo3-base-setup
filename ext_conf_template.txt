@@ -4,3 +4,5 @@ defaultBackendLayoutEnable = 0
 enableEmbedYouTubeHelper = 0
 # cat=Media; label=Enable Picture tag renderer; type=boolean
 enablePictureTagRenderer = 0
+# cat=Media; label=Enable Embed renderer; type=boolean
+enableEmbedRenderer = 0

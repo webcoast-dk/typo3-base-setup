@@ -11,8 +11,12 @@ if ((bool)$extensionConfiguration['enableEmbedYouTubeHelper'] === true) {
 }
 
 /** @var \TYPO3\CMS\Core\Configuration\ExtensionConfiguration $extensionConfiguration */
-$extensionConfiguration = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Configuration\ExtensionConfiguration::class);
+$extensionConfiguration = TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(TYPO3\CMS\Core\Configuration\ExtensionConfiguration::class);
 if ($extensionConfiguration->get('typo3_base_setup', 'enablePictureTagRenderer')) {
-    $rendererRegistry = \TYPO3\CMS\Core\Resource\Rendering\RendererRegistry::getInstance();
-    $rendererRegistry->registerRendererClass(\WEBcoast\Typo3BaseSetup\Resources\Rendering\PictureTagRenderer::class);
+    $rendererRegistry = TYPO3\CMS\Core\Resource\Rendering\RendererRegistry::getInstance();
+    $rendererRegistry->registerRendererClass(WEBcoast\Typo3BaseSetup\Resources\Rendering\PictureTagRenderer::class);
+}
+if ($extensionConfiguration->get('typo3_base_setup', 'enableEmbedRenderer')) {
+    $rendererRegistry = TYPO3\CMS\Core\Resource\Rendering\RendererRegistry::getInstance();
+    $rendererRegistry->registerRendererClass(WEBcoast\Typo3BaseSetup\Resources\Rendering\EmbedRenderer::class);
 }

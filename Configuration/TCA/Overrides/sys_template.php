@@ -68,3 +68,9 @@ ExtensionManagementUtility::addStaticFile(
     'Configuration/TypoScript/GalleryDataProcessor',
     'Basic page setup (gallery data processor)'
 );
+// add embed rendering setup
+ExtensionManagementUtility::addStaticFile(
+    'typo3_base_setup',
+    'Configuration/TypoScript/Embed',
+    'Basic page setup (embed rendering)'
+);
