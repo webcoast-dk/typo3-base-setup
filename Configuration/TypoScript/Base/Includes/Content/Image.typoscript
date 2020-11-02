@@ -5,12 +5,6 @@ tt_content.image {
                 fieldName = assets
             }
         }
-        20 >
-        20 = TYPO3\CMS\Frontend\DataProcessing\GalleryProcessor
-        20 {
-            filesProcessedDataKey = files
-            numberOfColumns.field = imagecols
-        }
     }
 
     variables {

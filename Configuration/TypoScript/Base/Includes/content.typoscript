@@ -43,6 +43,3 @@ lib.contentElement {
         imageWidth.data = register:imageWidth
     }
 }
-
-<INCLUDE_TYPOSCRIPT: source="DIR:EXT:typo3_base_setup/Configuration/TypoScript/Base/Includes/Content" extensions="typoscript">
-<INCLUDE_TYPOSCRIPT: source="DIR:EXT:typo3_base_setup/Configuration/TypoScript/Base/Includes/Extensions" extensions="typoscript">
