@@ -27,16 +27,40 @@ class GalleryProcessor extends \TYPO3\CMS\Frontend\DataProcessing\GalleryProcess
         if ($this->equalMediaHeight) {
             // User entered a predefined height
 
+            // Determine
+            if (($this->processorConfiguration['useHeightOfSmallestImage'] ?? false)) {
+                for ($row = 1; $row <= $this->galleryData['count']['rows']; $row++) {
+                    $this->galleryData['rows'][$row]['equalMediaHeight'] = $this->equalMediaHeight;
+                    for ($column = 1; $column <= $this->galleryData['count']['columns']; $column++) {
+                        $fileKey = (($row - 1) * $this->galleryData['count']['columns']) + $column - 1;
+                        if ($fileKey > $this->galleryData['count']['files'] - 1) {
+                            continue;
+                        }
+                        $fileHeight = $this->getCroppedDimensionalProperty($this->fileObjects[$fileKey], 'height');
+                        if ($this->processorConfiguration['equalHeightPerRow'] ?? false) {
+                            if ($fileHeight > 0 && $fileHeight < $this->galleryData['rows'][$row]['equalMediaHeight']) {
+                                $this->galleryData['rows'][$row]['equalMediaHeight'] = $fileHeight;
+                            }
+                        } else {
+                            if ($fileHeight > 0 && $fileHeight < $this->equalMediaHeight) {
+                                $this->equalMediaHeight = $fileHeight;
+                            }
+                        }
+                    }
+                }
+            }
+
             // Calculate the scaling correction when the total of media elements is wider than the gallery width
             for ($row = 1; $row <= $this->galleryData['count']['rows']; $row++) {
                 $totalRowWidth = 0;
                 $actualColumns = 0;
+                $equalMediaHeight = ($this->processorConfiguration['equalHeightPerRow'] ?? false) ? ($this->galleryData['rows'][$row]['equalMediaHeight'] ?? $this->equalMediaHeight) : $this->equalMediaHeight;
                 for ($column = 1; $column <= $this->galleryData['count']['columns']; $column++) {
                     $fileKey = (($row - 1) * $this->galleryData['count']['columns']) + $column - 1;
                     if ($fileKey > $this->galleryData['count']['files'] - 1) {
                         continue;
                     }
-                    $currentMediaScaling = $this->equalMediaHeight / max($this->getCroppedDimensionalProperty($this->fileObjects[$fileKey], 'height'), 1);
+                    $currentMediaScaling = $equalMediaHeight / max($this->getCroppedDimensionalProperty($this->fileObjects[$fileKey], 'height'), 1);
                     $totalRowWidth += $this->getCroppedDimensionalProperty($this->fileObjects[$fileKey], 'width') * $currentMediaScaling;
                     $actualColumns++;
                 }
@@ -50,19 +74,14 @@ class GalleryProcessor extends \TYPO3\CMS\Frontend\DataProcessing\GalleryProcess
                 if ($totalRowWidth > $galleryWidthMinusBorderAndSpacing) {
                     $this->galleryData['rows'][$row]['scaling'] = $totalRowWidth / $galleryWidthMinusBorderAndSpacing;
                 } else {
-                    $columnWidth = ($this->galleryData['width'] - $this->columnSpacing * ($this->galleryData['count']['columns'] - 1)) / $this->galleryData['count']['columns'];
-                    if ($this->borderEnabled) {
-                        $borderPaddingTotal = $this->galleryData['count']['columns'] * 2 * $this->borderPadding;
-                        $borderWidthTotal = $this->galleryData['count']['columns'] * 2 * $this->borderWidth;
-                        $columnWidth = $columnWidth - $borderPaddingTotal - $borderWidthTotal;
-                    }
-                    $this->galleryData['rows'][$row]['scaling'] = $totalRowWidth / $columnWidth;
+                    $this->galleryData['rows'][$row]['scaling'] = 1;
                 }
             }
 
             // Set the corrected dimensions for each media element
             foreach ($this->fileObjects as $key => $fileObject) {
-                $mediaHeight = round($this->equalMediaHeight / $this->galleryData['rows'][ceil(($key + 1) / $this->galleryData['count']['columns'])]['scaling']);
+                $equalMediaHeight = ($this->processorConfiguration['equalHeightPerRow'] ?? false) ? ($this->galleryData['rows'][ceil(($key + 1) / $this->galleryData['count']['columns'])]['equalMediaHeight'] ?? $this->equalMediaHeight) : $this->equalMediaHeight;
+                $mediaHeight = round($equalMediaHeight / $this->galleryData['rows'][ceil(($key + 1) / $this->galleryData['count']['columns'])]['scaling']);
                 $mediaWidth = round(
                     $this->getCroppedDimensionalProperty($fileObject, 'width') * ($mediaHeight / max($this->getCroppedDimensionalProperty($fileObject, 'height'), 1))
                 );
