@@ -38,6 +38,35 @@ page {
             field = abstract
             override.data = TSFE:applicationData|abstract
         }
+
+        og:image {
+            cObject = FILES
+            cObject {
+                references {
+                    table = pages
+                    uid.data = page:uid
+                    fieldName = media
+                }
+                maxItems = 1
+                renderObj = TEXT
+                renderObj {
+                    typolink {
+                        parameter {
+                            cObject = IMG_RESOURCE
+                            cObject {
+                                file {
+                                    import.data = file:current:uid
+                                    treatIdAsReference = 1
+                                }
+                            }
+                        }
+                        forceAbsoluteUrl = 1
+                        returnLast = url
+                    }
+                }
+            }
+            override.data = TSFE:applicationData|image
+        }
     }
 
     10 = LOAD_REGISTER
