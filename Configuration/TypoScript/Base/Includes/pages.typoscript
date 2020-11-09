@@ -39,6 +39,12 @@ page {
             override.data = TSFE:applicationData|abstract
         }
 
+        og:title = TEXT
+        og:title {
+            field = title
+            override.data = TSFE:applicationData|pageTitle
+        }
+
         og:image {
             cObject = FILES
             cObject {
