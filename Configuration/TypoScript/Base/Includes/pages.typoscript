@@ -39,10 +39,14 @@ page {
             override.data = TSFE:applicationData|abstract
         }
 
-        og:title = TEXT
         og:title {
-            field = title
+            field = og_title//seo_title//title
             override.data = TSFE:applicationData|pageTitle
+        }
+
+        og:description {
+            field = og_description
+            override.data = TSFE:applicationData|og:description
         }
 
         og:image {
@@ -51,7 +55,7 @@ page {
                 references {
                     table = pages
                     uid.data = page:uid
-                    fieldName = media
+                    fieldName = og_image
                 }
                 maxItems = 1
                 renderObj = TEXT
@@ -71,7 +75,19 @@ page {
                     }
                 }
             }
-            override.data = TSFE:applicationData|image
+            orderedStdWrap {
+                10 {
+                    ifEmpty.cObject = < page.meta.og:image.cObject
+                    ifEmpty.cObject {
+                        references {
+                            fieldName = media
+                        }
+                    }
+                }
+                20 {
+                    override.data = TSFE:applicationData|image
+                }
+            }
         }
     }
 
