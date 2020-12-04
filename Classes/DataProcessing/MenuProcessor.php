@@ -76,7 +76,7 @@ class MenuProcessor extends \TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
             $this->determineOriginalShortcutPage($page);
             $shortcutPage = null;
             try {
-                $shortcutPage = $this->getTypoScriptFrontendController()->getPageShortcut(
+                $shortcutPage = $this->getTypoScriptFrontendController()->sys_page->getPageShortcut(
                     $page['shortcut'],
                     $page['shortcut_mode'],
                     $page['uid'],
