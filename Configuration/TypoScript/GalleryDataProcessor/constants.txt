@@ -1,4 +1,0 @@
-styles.content.textmedia.maxW = 1200
-styles.content.textmedia.maxWInText = 400
-styles.content.textmedia.columnSpacing = 16
-styles.content.textmedia.borderWidth = 0

@@ -62,15 +62,3 @@ ExtensionManagementUtility::addStaticFile(
     'Configuration/TypoScript/PageTitleProvider',
     'Basic page setup (page title provider)'
 );
-// add gallery data processor setup
-ExtensionManagementUtility::addStaticFile(
-    'typo3_base_setup',
-    'Configuration/TypoScript/GalleryDataProcessor',
-    'Basic page setup (gallery data processor)'
-);
-// add embed rendering setup
-ExtensionManagementUtility::addStaticFile(
-    'typo3_base_setup',
-    'Configuration/TypoScript/Embed',
-    'Basic page setup (embed rendering)'
-);

@@ -1,5 +1,0 @@
-lib.tx_typo3basesetup_embed {
-    templateRootPaths {
-        0 = EXT:typo3_base_setup/Resources/Private/Templates/Embed/
-    }
-}

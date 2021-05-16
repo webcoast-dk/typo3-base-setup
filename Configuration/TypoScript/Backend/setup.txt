@@ -1,1 +1,0 @@
-<INCLUDE_TYPOSCRIPT: source="DIR:EXT:typo3_base_setup/Configuration/TypoScript/Backend/Includes" extensions="typoscript">
