@@ -11,10 +11,34 @@ page {
         viewport = width=device-width, initial-scale=1.0
         X-UA-Compatible = IE=edge
         X-UA-Compatible.httpEquivalent = 1
-        robots = index,follow
         robots {
-            override = noindex,follow
-            override.if.isTrue.field = no_search
+            cObject = COA
+            cObject {
+                10 = CASE
+                10 {
+                    key.field = no_index
+
+                    0 = TEXT
+                    0.value = index
+
+                    1 = TEXT
+                    1.value = noindex
+                }
+
+                15 = TEXT
+                15.value = ,
+
+                20 = CASE
+                20 {
+                    key.field = no_follow
+
+                    0 = TEXT
+                    0.value = follow
+
+                    1 = TEXT
+                    1.value = nofollow
+                }
+            }
             orderedStdWrap {
                 10 {
                     override {

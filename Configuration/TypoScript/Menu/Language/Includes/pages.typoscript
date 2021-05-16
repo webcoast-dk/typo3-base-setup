@@ -7,6 +7,9 @@ page {
                 special = language
                 special.value = auto
                 as = menuLanguage
+                dataProcessing {
+                    10 = WEBcoast\Typo3BaseSetup\DataProcessing\EnrichLanguageMenuProcessor
+                }
             }
         }
     }
