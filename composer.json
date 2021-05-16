@@ -8,12 +8,12 @@
 	"authors": [
 		{
 			"name": "Thorben Nissen",
-			"email": "thorben.nissen@kapp-hamburg.de"
+			"email": "thorben@webcoast.dk"
 		}
 	],
 	"extra": {
 		"branch-alias": {
-			"dev-master": "3.x-dev"
+			"dev-release/4.x": "4.x-dev"
 		},
 		"typo3/cms": {
 			"extension-key": "typo3_base_setup"
@@ -26,11 +26,11 @@
 	},
 	"require": {
 		"ext-json": "*",
-		"typo3/cms-backend": "^10.2.0",
-		"typo3/cms-core": "^10.2.0",
-		"typo3/cms-frontend": "^10.2.0",
-		"typo3/cms-install": "^10.2.0",
-		"typo3/cms-fluid-styled-content": "^10.2.0"
+		"typo3/cms-backend": "^10.4",
+		"typo3/cms-core": "^10.4",
+		"typo3/cms-frontend": "^10.4",
+		"typo3/cms-install": "^10.4",
+		"typo3/cms-fluid-styled-content": "^10.4"
 	},
 	"suggest": {
 		"typo3/cms-rte-ckeditor": "The currently preferred rich text editor for TYPO3, to make editing easier and more flexible."
