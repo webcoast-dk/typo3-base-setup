@@ -41,7 +41,7 @@ page {
 
         og:title {
             field = og_title//seo_title//title
-            override.data = TSFE:applicationData|pageTitle
+            override.data = TSFE:applicationData|og:title
         }
 
         og:description {
