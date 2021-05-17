@@ -2,7 +2,7 @@ page {
     20 {
         dataProcessing {
             # main menu
-            10 = WEBcoast\Typo3BaseSetup\DataProcessing\MenuProcessor
+            10 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
             10 {
                 as = menuMain
                 entryLevel = 0

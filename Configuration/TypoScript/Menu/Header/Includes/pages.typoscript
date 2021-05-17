@@ -2,9 +2,9 @@ page {
     20 {
         dataProcessing {
             # menu header
-            13 = WEBcoast\Typo3BaseSetup\DataProcessing\MenuProcessor
+            13 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
             13 {
-                special = list
+                special = directory
                 special.value =
                 as = menuHeader
             }
