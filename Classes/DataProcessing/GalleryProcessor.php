@@ -96,7 +96,7 @@ class GalleryProcessor extends \TYPO3\CMS\Frontend\DataProcessing\GalleryProcess
                     $equalMediaHeight = $this->equalMediaHeight;
                     $mediaScaling = $this->mediaScaling;
                 }
-                $mediaHeight = round($equalMediaHeight / $mediaScaling);
+                $mediaHeight = floor($equalMediaHeight / $mediaScaling);
                 $mediaWidth = floor(
                     $this->getCroppedDimensionalProperty($fileObject, 'width') * ($mediaHeight / max($this->getCroppedDimensionalProperty($fileObject, 'height'), 1))
                 );
