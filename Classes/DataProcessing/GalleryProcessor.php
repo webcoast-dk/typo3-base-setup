@@ -50,6 +50,7 @@ class GalleryProcessor extends \TYPO3\CMS\Frontend\DataProcessing\GalleryProcess
                             }
                         }
                     }
+                    $this->galleryData['rows'][$row]['cumulatedWidth'] = 0;
                 }
             }
 
@@ -74,6 +75,7 @@ class GalleryProcessor extends \TYPO3\CMS\Frontend\DataProcessing\GalleryProcess
                     $borderWidthTotal = $actualColumns * 2 * $this->borderWidth;
                     $galleryWidthMinusBorderAndSpacing = $galleryWidthMinusBorderAndSpacing - $borderPaddingTotal - $borderWidthTotal;
                 }
+                $this->galleryData['rows'][$row]['maxWidth'] = $galleryWidthMinusBorderAndSpacing;
                 if ($totalRowWidth > $galleryWidthMinusBorderAndSpacing) {
                     $mediaScaling = $totalRowWidth / $galleryWidthMinusBorderAndSpacing;
                     if ($mediaScaling > $this->mediaScaling) {
@@ -89,21 +91,71 @@ class GalleryProcessor extends \TYPO3\CMS\Frontend\DataProcessing\GalleryProcess
 
             // Set the corrected dimensions for each media element
             foreach ($this->fileObjects as $key => $fileObject) {
+                $rowNumber = ceil(($key + 1) / $this->galleryData['count']['columns']);
                 if ($this->processorConfiguration['equalHeightPerRow'] ?? false) {
-                    $equalMediaHeight = $this->galleryData['rows'][ceil(($key + 1) / $this->galleryData['count']['columns'])]['equalMediaHeight'];
-                    $mediaScaling = $this->galleryData['rows'][ceil(($key + 1) / $this->galleryData['count']['columns'])]['scaling'];
+                    $equalMediaHeight = $this->galleryData['rows'][$rowNumber]['equalMediaHeight'];
+                    $mediaScaling = $this->galleryData['rows'][$rowNumber]['scaling'];
                 } else {
                     $equalMediaHeight = $this->equalMediaHeight;
                     $mediaScaling = $this->mediaScaling;
                 }
-                $mediaHeight = floor($equalMediaHeight / $mediaScaling);
-                $mediaWidth = floor(
+                $mediaHeight = round($equalMediaHeight / $mediaScaling);
+                $mediaWidth = ceil(
                     $this->getCroppedDimensionalProperty($fileObject, 'width') * ($mediaHeight / max($this->getCroppedDimensionalProperty($fileObject, 'height'), 1))
                 );
                 $this->mediaDimensions[$key] = [
                     'width' => $mediaWidth,
                     'height' => $mediaHeight
                 ];
+                $this->galleryData['rows'][$rowNumber]['cumulatedWidth'] += $mediaWidth;
+            }
+
+            // Check if rows are wider than allowed
+            foreach ($this->galleryData['rows'] as $rowNumber => $rowData) {
+                if ($rowData['cumulatedWidth'] > $rowData['maxWidth']) {
+                    // We want the absolute difference
+                    $difference = abs($rowData['maxWidth'] - $rowData['cumulatedWidth']);
+                    // How much do we need to cut off each element
+                    $cutPerElement = floor($difference / $this->galleryData['count']['columns']);
+                    // How much do we need to cut extra off the widest elements
+                    $additionalCutForWidestElements = ceil($difference / $this->galleryData['count']['columns']) - $cutPerElement;
+
+                    $elementsToCrop = [];
+
+                    // Collect file object keys for the current row
+                    foreach ($this->fileObjects as $key => $fileObject) {
+                        if ($key >= ($rowNumber - 1) * $this->galleryData['count']['columns'] && $key < $rowNumber * $this->galleryData['count']['columns']) {
+                            $elementsToCrop[] = [
+                                'width' => $this->mediaDimensions[$key]['width'],
+                                'key' => $key
+                            ];
+                        }
+                    }
+
+                    // Sort by width in descending order
+                    usort($elementsToCrop, function($a, $b) {
+                        if ($a['width'] === $b['width']) {
+                            return 0;
+                        }
+
+                        return ($a['width'] > $b['width']) ? -1 : 1;
+                    });
+
+                    // Cut the default off each element
+                    if ($cutPerElement > 0) {
+                        foreach ($elementsToCrop as $element) {
+                            $this->mediaDimensions[$element['key']]['width'] = $this->mediaDimensions[$element['key']]['width'] - min($difference, $cutPerElement);
+                            $difference -= min($difference, $cutPerElement);
+                        }
+                    }
+                    // Cut the extra off each element, until the difference is 0
+                    foreach ($elementsToCrop as $element) {
+                        if ($difference > 0) {
+                            $this->mediaDimensions[$element['key']]['width'] = $this->mediaDimensions[$element['key']]['width'] - min($difference, $additionalCutForWidestElements);
+                            $difference -= min($difference, $additionalCutForWidestElements);
+                        }
+                    }
+                }
             }
         } elseif ($this->equalMediaWidth) {
             // User entered a predefined width
