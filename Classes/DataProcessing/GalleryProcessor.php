@@ -96,7 +96,7 @@ class GalleryProcessor extends \TYPO3\CMS\Frontend\DataProcessing\GalleryProcess
             }
 
             // Determine the shortest row and recalculate scaling
-            if ($justifyImages) {
+            if ($justifyImages && $equalHeightPerRow) {
                 $shortestRowWidth = null;
                 foreach ($this->galleryData['rows'] as $rowData) {
                     // Ignore incomplete columns
@@ -107,12 +107,21 @@ class GalleryProcessor extends \TYPO3\CMS\Frontend\DataProcessing\GalleryProcess
                     }
                 }
 
-                // Adjust scaling and max width to shortest row
-                foreach ($this->galleryData['rows'] as &$rowData) {
-                    if ($rowData['totalWidth'] > $shortestRowWidth) {
-                        $rowData['scaling'] = $rowData['totalWidth'] / $shortestRowWidth;
+                if ($shortestRowWidth < $galleryWidthMinusBorderAndSpacing) {
+                    // Adjust scaling and max width to shortest row
+                    foreach ($this->galleryData['rows'] as $rowNumber => $rowData) {
+                        $columnDifference = $this->numberOfColumns - $rowData['actualColumns'];
+                        $additionalSpacingWidth = $columnDifference * $this->columnSpacing + $columnDifference;
+                        if ($this->borderEnabled) {
+                            $borderPaddingTotal = ($columnDifference + 1) * 2 * $this->borderPadding;
+                            $borderWidthTotal = ($columnDifference + 1) * 2 * $this->borderWidth;
+                            $additionalSpacingWidth += $borderPaddingTotal + $borderWidthTotal;
+                        }
+                        if ($this->galleryData['rows'][$rowNumber]['totalWidth'] > $shortestRowWidth + $additionalSpacingWidth) {
+                            $this->galleryData['rows'][$rowNumber]['scaling'] = $rowData['totalWidth'] / ($shortestRowWidth + $additionalSpacingWidth);
+                        }
+                        $this->galleryData['rows'][$rowNumber]['maxWidth'] = floor($shortestRowWidth) + $additionalSpacingWidth;
                     }
-                    $rowData['maxWidth'] = $shortestRowWidth;
                 }
             }
 
@@ -143,9 +152,9 @@ class GalleryProcessor extends \TYPO3\CMS\Frontend\DataProcessing\GalleryProcess
                     // We want the absolute difference
                     $difference = abs($rowData['maxWidth'] - $rowData['cumulatedWidth']);
                     // How much do we need to cut off each element
-                    $cutPerElement = floor($difference / $this->galleryData['count']['columns']);
+                    $cutPerElement = floor($difference / $this->galleryData['rows'][$rowNumber]['actualColumns']);
                     // How much do we need to cut extra off the widest elements
-                    $additionalCutForWidestElements = ceil($difference / $this->galleryData['count']['columns']) - $cutPerElement;
+                    $additionalCutForWidestElements = ceil($difference / $this->galleryData['rows'][$rowNumber]['actualColumns']) - $cutPerElement;
 
                     $elementsToCrop = [];
 
