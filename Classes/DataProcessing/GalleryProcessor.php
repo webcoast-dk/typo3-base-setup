@@ -96,7 +96,7 @@ class GalleryProcessor extends \TYPO3\CMS\Frontend\DataProcessing\GalleryProcess
             }
 
             // Determine the shortest row and recalculate scaling
-            if ($justifyImages && $equalHeightPerRow) {
+            if ($justifyImages && $equalHeightPerRow && $this->galleryData['count']['rows'] > 1) {
                 $shortestRowWidth = null;
                 foreach ($this->galleryData['rows'] as $rowData) {
                     // Ignore incomplete columns
