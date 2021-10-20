@@ -26,11 +26,11 @@
 	},
 	"require": {
 		"ext-json": "*",
-		"typo3/cms-backend": "^10.4",
-		"typo3/cms-core": "^10.4",
-		"typo3/cms-frontend": "^10.4",
-		"typo3/cms-install": "^10.4",
-		"typo3/cms-fluid-styled-content": "^10.4"
+		"typo3/cms-backend": "^10.4 || ^11.5",
+		"typo3/cms-core": "^10.4 || ^11.5",
+		"typo3/cms-frontend": "^10.4 || ^11.5",
+		"typo3/cms-install": "^10.4 || ^11.5",
+		"typo3/cms-fluid-styled-content": "^10.4 || ^11.5"
 	},
 	"suggest": {
 		"typo3/cms-rte-ckeditor": "The currently preferred rich text editor for TYPO3, to make editing easier and more flexible."
