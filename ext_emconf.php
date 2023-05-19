@@ -1,30 +1,25 @@
 <?php
 
-$EM_CONF[$_EXTKEY] = array(
-	'title' => 'TYPO3 base setup',
-	'description' => 'TYPO3 base setup and components',
-	'category' => 'plugin',
-	'author' => 'Thorben Nissen',
-	'author_email' => 'thorben.nissen@kapp-hamburg.de',
-	'author_company' => '',
-	'shy' => '',
-	'priority' => '',
-	'module' => '',
-	'state' => 'stable',
-	'internal' => '',
-	'uploadfolder' => '0',
-	'createDirs' => '',
-	'modify_tables' => '',
-	'clearCacheOnLoad' => 0,
-	'lockType' => '',
-	'version' => '4.0.0',
-	'constraints' => array(
-		'depends' => array(
-			'typo3' => '10.4.0-11.5.99',
-		),
-		'conflicts' => array(
-		),
-		'suggests' => array(
-		),
-	),
-);
+$EM_CONF[$_EXTKEY] = [
+    'title' => 'TYPO3 base setup',
+    'description' => 'TYPO3 base setup and components',
+    'version' => '5.0.0-dev',
+    'category' => 'frontend',
+    'constraints' => [
+        'depends' => [
+            'typo3' => '12.4.0-12.4.99',
+        ],
+        'conflicts' => [
+        ],
+        'suggests' => [
+        ],
+    ],
+    'author' => 'Thorben Nissen',
+    'author_email' => 'thorben@webcoast.dk',
+    'author_company' => 'WEBcoast',
+    'autoload' => [
+        'psr-4' => [
+            'WEBcoast\\Typo3BaseSetup\\' => 'Classes'
+        ]
+    ]
+];

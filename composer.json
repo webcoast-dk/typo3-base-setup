@@ -1,38 +1,37 @@
 {
-	"name": "webcoast/typo3-base-setup",
-	"description": "TYPO3 basic page setup and components",
-	"type": "typo3-cms-extension",
-	"license": "GPL-2.0+",
-	"minimum-stability": "dev",
-	"prefer-stable": true,
-	"authors": [
-		{
-			"name": "Thorben Nissen",
-			"email": "thorben@webcoast.dk"
-		}
-	],
-	"extra": {
-		"branch-alias": {
-			"dev-release/4.x": "4.x-dev"
-		},
-		"typo3/cms": {
-			"extension-key": "typo3_base_setup"
-		}
-	},
-	"autoload": {
-		"psr-4": {
-			"WEBcoast\\Typo3BaseSetup\\": "Classes"
-		}
-	},
-	"require": {
-		"ext-json": "*",
-		"typo3/cms-backend": "^10.4 || ^11.5",
-		"typo3/cms-core": "^10.4 || ^11.5",
-		"typo3/cms-frontend": "^10.4 || ^11.5",
-		"typo3/cms-install": "^10.4 || ^11.5",
-		"typo3/cms-fluid-styled-content": "^10.4 || ^11.5"
-	},
-	"suggest": {
-		"typo3/cms-rte-ckeditor": "The currently preferred rich text editor for TYPO3, to make editing easier and more flexible."
-	}
+    "name": "webcoast/typo3-base-setup",
+    "title": "TYPO3 base setup",
+    "description": "TYPO3 basic page setup and components",
+    "type": "typo3-cms-extension",
+    "license": "GPL-2.0+",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "authors": [
+        {
+            "name": "Thorben Nissen",
+            "email": "thorben@webcoast.dk"
+        }
+    ],
+    "extra": {
+        "branch-alias": {
+            "dev-release/5.x": "5.x-dev"
+        },
+        "typo3/cms": {
+            "extension-key": "typo3_base_setup"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "WEBcoast\\Typo3BaseSetup\\": "Classes"
+        }
+    },
+    "require": {
+        "ext-json": "*",
+        "typo3/cms-core": "^12.4",
+        "typo3/cms-frontend": "^12.4",
+        "typo3fluid/fluid": "^2.7"
+    },
+    "suggest": {
+        "typo3/cms-rte-ckeditor": "The currently preferred rich text editor for TYPO3, to make editing easier and more flexible."
+    }
 }
