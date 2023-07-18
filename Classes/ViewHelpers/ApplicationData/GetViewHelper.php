@@ -38,7 +38,7 @@ class GetViewHelper extends AbstractViewHelper
     private static function getValueFromPath($path)
     {
         $pathElements = explode('.', $path);
-        $data = &self::getTyposcriptFrontendController()->applicationData;
+        $data = self::getTyposcriptFrontendController()->applicationData;
         $pathElementCount = count($pathElements);
         $value = null;
         foreach ($pathElements as $index => $key) {
@@ -47,7 +47,7 @@ class GetViewHelper extends AbstractViewHelper
                 break;
             }
             if ($index < $pathElementCount - 1) {
-                if (is_array($data[$key])) {
+                if (is_array($data[$key] ?? null)) {
                     $data = &$data[$key];
                 } else {
                     $data = null;

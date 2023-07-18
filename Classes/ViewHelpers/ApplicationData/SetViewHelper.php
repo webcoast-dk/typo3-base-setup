@@ -43,7 +43,7 @@ class SetViewHelper extends AbstractViewHelper
         $pathElementCount = count($pathElements);
         foreach ($pathElements as $index => $key) {
             if ($index < $pathElementCount - 1) {
-                if(!is_array($data[$key])) {
+                if(!is_array($data[$key] ?? null)) {
                     $data[$key] = [];
                 }
                 $data = &$data[$key];
