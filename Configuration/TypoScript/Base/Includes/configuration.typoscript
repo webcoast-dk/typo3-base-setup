@@ -1,8 +1,5 @@
 config {
-    absRefPrefix = /
-    disablePrefixComment = 1
-    moveJsFromHeaderToFooter = 1
-
+    absRefPrefix = auto
     disablePrefixComment = 1
 
     cache_clearAtMidnight = 1

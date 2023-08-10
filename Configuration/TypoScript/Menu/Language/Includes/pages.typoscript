@@ -2,14 +2,10 @@ page {
     20 {
         dataProcessing {
             # menu language
-            11 = WEBcoast\Typo3BaseSetup\DataProcessing\MenuProcessor
+            11 = TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor
             11 {
-                special = language
-                special.value = auto
+                languages = auto
                 as = menuLanguage
-                dataProcessing {
-                    10 = WEBcoast\Typo3BaseSetup\DataProcessing\EnrichLanguageMenuProcessor
-                }
             }
         }
     }
