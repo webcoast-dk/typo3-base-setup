@@ -1,0 +1,10 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    WEBcoast\Typo3BaseSetup\EventListener\DynamicMenuFieldsEventListener:
+        tags:
+            - name: event.listener
+              identifier: typo3_base_setup_dynamic_menu_fields_listener

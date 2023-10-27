@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext">
+        <body>
+            <trans-unit id="pages.tabs.menu">
+                <source>Menu settings</source>
+            </trans-unit>
+            <trans-unit id="pages.header_menu.label">
+                <source>Header menu</source>
+            </trans-unit>
+            <trans-unit id="pages.footer_menu.label">
+                <source>Header menu</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>
