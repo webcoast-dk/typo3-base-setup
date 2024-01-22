@@ -9,7 +9,7 @@
                 <source>Header menu</source>
             </trans-unit>
             <trans-unit id="pages.footer_menu.label">
-                <source>Header menu</source>
+                <source>Footer menu</source>
             </trans-unit>
         </body>
     </file>

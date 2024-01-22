@@ -18,7 +18,15 @@ class DynamicMenuFieldsEventListener
         $dynamicFooterMenu = GeneralUtility::makeInstance(ExtensionConfiguration::class)->get('typo3_base_setup', 'dynamicFooterMenu');
 
         if ($dynamicHeaderMenu || $dynamicFooterMenu) {
-            $sqlData[] = sprintf('CREATE TABLE %s (field_name varchar(200) DEFAULT NULL);', $GLOBALS['TCA']['pages']['columns'][$dynamicHeaderMenu ? 'header_menu' : 'footer_menu']['config']['MM']);
+            $sqlData[] = sprintf('CREATE TABLE %s (uid_local int(10) unsigned DEFAULT 0 NOT NULL, uid_foreign int(10) unsigned DEFAULT 0 NOT NULL, field_name varchar(200) DEFAULT NULL, PRIMARY KEY (uid_local, uid_foreign, field_name));', $GLOBALS['TCA']['pages']['columns'][$dynamicHeaderMenu ? 'header_menu' : 'footer_menu']['config']['MM']);
+
+            if ($dynamicHeaderMenu) {
+                $sqlData[] = sprintf('CREATE TABLE pages (%s int(11) DEFAULT NULL);', 'header_menu');
+            }
+
+            if ($dynamicFooterMenu) {
+                $sqlData[] = sprintf('CREATE TABLE pages (%s int(11) DEFAULT NULL);', 'footer_menu');
+            }
         }
 
         $event->setSqlData($sqlData);
