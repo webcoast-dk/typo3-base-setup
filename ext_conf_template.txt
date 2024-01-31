@@ -1,5 +1,0 @@
-# cat=Features; type=boolean; label=Header menu: Enable field for pages in header menu
-dynamicHeaderMenu = 0
-
-# cat=Features; type=boolean; label=Footer menu: Enable field for pages in footer menu
-dynamicFooterMenu = 0
