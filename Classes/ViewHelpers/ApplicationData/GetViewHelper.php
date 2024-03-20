@@ -53,7 +53,7 @@ class GetViewHelper extends AbstractViewHelper
                     $data = null;
                 }
             } else {
-                $value = $data[$key];
+                $value = $data[$key] ?? null;
             }
         }
 
