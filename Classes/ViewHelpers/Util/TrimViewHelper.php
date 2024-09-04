@@ -22,6 +22,10 @@ class TrimViewHelper extends AbstractViewHelper
             $value = $this->renderChildren();
         }
 
+        if ($value === null) {
+            return '';
+        }
+
         switch ($this->arguments['mode']) {
             case 'left':
                 if (!empty($this->arguments['charList'])) {
